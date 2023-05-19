@@ -1,7 +1,11 @@
 # 忽略以下目录中的所有子目录及文件
-/target/*
+*/target/*
 /.idea/*
 
 # 忽略以下文件
 *.iml
 .DS_Store
+
+*/.cache
+*/dist
+*/node_modules
