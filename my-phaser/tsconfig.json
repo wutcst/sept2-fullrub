@@ -1,22 +1,29 @@
 {
-  "compilerOptions": {
-    "target": "ES2015",
-    "module": "ES2015",
-
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-
-    "allowJs": true,
-    "allowUnreachableCode": false,
-    "noImplicitAny": false,
-    "sourceMap": true,
-    "strictPropertyInitialization": false,
-
-    "moduleResolution": "node",
-    "lib": ["dom", "esnext"]
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"strict": true,
+		"noEmit": false,
+		"importHelpers": true,
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"sourceMap": true,
+		"baseUrl": "./src",
+		"paths": {
+		  "~/*": ["./*"]
+		},
+        "outDir": "./dist",
+		"typeRoots": [
+			"node_modules/@types",
+			"node_module/phaser/types"
+		],
+		"types": [
+			"phaser"
+		]
+	},
+	"include": [
+		"src/**/*",
+		"types/**/*"
+	]
 }
