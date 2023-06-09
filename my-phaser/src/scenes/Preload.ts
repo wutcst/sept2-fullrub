@@ -21,30 +21,37 @@ export default class Preload extends Phaser.Scene {
 
 	editorCreate(): void {
 
-		// guapen
-		const guapen = this.add.image(505.0120544433594, 360, "guapen");
-		guapen.scaleX = 0.32715486817515643;
-		guapen.scaleY = 0.32715486817515643;
+		// container_1
+		const container_1 = this.add.container(140.60021713006, -290.6670139635124);
 
-		// progressBar
-		const progressBar = this.add.rectangle(553.0120849609375, 361, 256, 20);
-		progressBar.setOrigin(0, 0);
-		progressBar.isFilled = true;
-		progressBar.fillColor = 14737632;
+		// loadingText_1
+		const loadingText_1 = this.add.text(175.41184997558594, 559.6669921875, "", {});
+		loadingText_1.text = "Loading...";
+		loadingText_1.setStyle({ "color": "#e0e0e0", "fontFamily": "arial", "fontSize": "20px" });
+		container_1.add(loadingText_1);
+
+		// progressBarBg_1
+		const progressBarBg_1 = this.add.rectangle(91.4118423461914, 591.6669921875, 256, 20);
+		progressBarBg_1.setOrigin(0, 0);
+		progressBarBg_1.fillColor = 14737632;
+		progressBarBg_1.isStroked = true;
+		container_1.add(progressBarBg_1);
+
+		// progressBar_1
+		const progressBar_1 = this.add.rectangle(91.4118423461914, 591.6669921875, 256, 20);
+		progressBar_1.setOrigin(0, 0);
+		progressBar_1.isFilled = true;
+		progressBar_1.fillColor = 14737632;
+		container_1.add(progressBar_1);
 
 		// preloadUpdater
-		new PreloadBarUpdaterScript(progressBar);
+		new PreloadBarUpdaterScript(progressBar_1);
 
-		// progressBarBg
-		const progressBarBg = this.add.rectangle(553.0120849609375, 361, 256, 20);
-		progressBarBg.setOrigin(0, 0);
-		progressBarBg.fillColor = 14737632;
-		progressBarBg.isStroked = true;
-
-		// loadingText
-		const loadingText = this.add.text(552.0120849609375, 329, "", {});
-		loadingText.text = "Loading...";
-		loadingText.setStyle({ "color": "#e0e0e0", "fontFamily": "arial", "fontSize": "20px" });
+		// guapen_1
+		const guapen_1 = this.add.image(45.411842346191406, 590.6669921875, "guapen");
+		guapen_1.scaleX = 0.32715486817515643;
+		guapen_1.scaleY = 0.32715486817515643;
+		container_1.add(guapen_1);
 
 		this.events.emit("scene-awake");
 	}

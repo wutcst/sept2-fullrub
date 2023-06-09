@@ -1,11 +1,8 @@
-
 // You can write more code here
 
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import OnPointerDownScript from "../script-nodes-basic/OnPointerDownScript";
-import PushActionScript from "../script-nodes/PushActionScript";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -15,40 +12,40 @@ export default class Level extends Phaser.Scene {
 		super("Level");
 
 		/* START-USER-CTR-CODE */
-		// Write your code here.
-		/* END-USER-CTR-CODE */
+    // Write your code here.
+    /* END-USER-CTR-CODE */
 	}
 
 	editorCreate(): void {
 
-		// fufuSuperDino
-		const fufuSuperDino = this.add.image(640, 257, "FufuSuperDino");
+		// keyboard_key
+		const keyboard_key = this.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
-		// onPointerDownScript
-		const onPointerDownScript = new OnPointerDownScript(fufuSuperDino);
+		// text_1
+		const text_1 = this.add.text(320, 450, "", {});
+		text_1.setOrigin(0.5, 0.5);
+		text_1.text = "这是主页";
+		text_1.setStyle({ "fontSize": "30px" });
 
-		// pushAction
-		new PushActionScript(onPointerDownScript);
-
-		// text
-		const text = this.add.text(640, 458, "", {});
-		text.setOrigin(0.5, 0.5);
-		text.text = "Phaser 3 + Phaser Editor 2D\nWebpack + TypeScript";
-		text.setStyle({ "align": "center", "fontFamily": "Arial", "fontSize": "3em" });
+		this.keyboard_key = keyboard_key;
 
 		this.events.emit("scene-awake");
 	}
 
+	private keyboard_key!: Phaser.Input.Keyboard.Key;
+
 	/* START-USER-CODE */
 
-	// Write your code here
+  // Write your code here
 
-	create() {
+  create() {
+    this.editorCreate();
+    this.keyboard_key.on("down", () => {
+      this.scene.start("BaseHome");
+    });
+  }
 
-		this.editorCreate();
-	}
-
-	/* END-USER-CODE */
+  /* END-USER-CODE */
 }
 
 /* END OF COMPILED CODE */

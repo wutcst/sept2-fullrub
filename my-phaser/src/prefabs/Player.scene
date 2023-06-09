@@ -1,0 +1,47 @@
+{
+    "id": "099bf344-2ff4-40e5-990f-46bd32309d6c",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640
+    },
+    "displayList": [
+        {
+            "type": "ArcadeSprite",
+            "id": "ac0c5fdf-8a49-4347-bd7b-1b61dbd14a5a",
+            "label": "arcadesprite_1",
+            "texture": {
+                "key": "fauna_1",
+                "frame": "walk-down-3.png"
+            },
+            "x": 385,
+            "y": 397,
+            "body.width": 32,
+            "body.height": 32
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    },
+    "prefabProperties": [
+        {
+            "name": "speed",
+            "label": "速度",
+            "tooltip": "Property 1",
+            "defValue": 100,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        }
+    ]
+}

@@ -2,9 +2,82 @@
     "section1": {
         "files": [
             {
+                "url": "assets/public/tiles/dungeon-01.json",
+                "type": "tilemapTiledJSON",
+                "key": "dungeon"
+            },
+            {
+                "url": "assets/public/tiles/dungeon_tiles.png",
+                "type": "image",
+                "key": "dungeon_tiles"
+            },
+            {
+                "url": "assets/public/tiles/dungeon_tiles_extruded.png",
+                "type": "image",
+                "key": "dungeon_tiles_extruded"
+            },
+            {
+                "url": "assets/public/character/fauna.png",
+                "type": "image",
+                "key": "fauna"
+            },
+            {
+                "type": "multiatlas",
+                "url": "assets/public/character/fauna.json",
+                "path": "assets/public/character",
+                "key": "fauna_1"
+            },
+            {
                 "url": "assets/FufuSuperDino.png",
                 "type": "image",
                 "key": "FufuSuperDino"
+            },
+            {
+                "url": "assets/public/dungeons/init-scene.json",
+                "type": "tilemapTiledJSON",
+                "key": "init-scene"
+            },
+            {
+                "url": "assets/public/enemies/lizard.png",
+                "type": "image",
+                "key": "lizard"
+            },
+            {
+                "atlasURL": "assets/public/enemies/lizard.json",
+                "textureURL": "assets/public/enemies/lizard.png",
+                "type": "atlas",
+                "key": "lizard_1"
+            },
+            {
+                "url": "assets/player-anims.json",
+                "type": "animation",
+                "key": "player-anims"
+            },
+            {
+                "url": "assets/public/items/treasure.png",
+                "type": "image",
+                "key": "treasure"
+            },
+            {
+                "atlasURL": "assets/public/items/treasure.json",
+                "textureURL": "assets/public/items/treasure.png",
+                "type": "atlas",
+                "key": "treasure_1"
+            },
+            {
+                "url": "assets/public/ui/ui_heart_empty.png",
+                "type": "image",
+                "key": "ui_heart_empty"
+            },
+            {
+                "url": "assets/public/ui/ui_heart_full.png",
+                "type": "image",
+                "key": "ui_heart_full"
+            },
+            {
+                "url": "assets/public/weapons/weapon_knife.png",
+                "type": "image",
+                "key": "weapon_knife"
             }
         ]
     },
@@ -12,6 +85,7 @@
         "app": "Phaser Editor 2D - Asset Pack Editor",
         "contentType": "phasereditor2d.pack.core.AssetContentType",
         "url": "https://phasereditor2d.com",
-        "version": 2
+        "version": 2,
+        "showAllFilesInBlocks": false
     }
 }

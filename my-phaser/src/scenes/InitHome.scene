@@ -1,0 +1,102 @@
+{
+    "id": "96973cab-9ed8-4973-92ee-c4534b9fbf07",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "BaseHome",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640
+    },
+    "displayList": [
+        {
+            "type": "TilemapLayer",
+            "id": "541c0cc4-bb17-4059-b2e6-67778b92ce38",
+            "label": "ground_1",
+            "tilemapId": "0a20058f-4feb-4953-8efa-3b3d2bc584b9",
+            "layerName": "ground",
+            "tilesets": [
+                "dungeon"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "bb586d57-db4a-4d2b-b490-b28577628801",
+            "label": "wall_1",
+            "tilemapId": "0a20058f-4feb-4953-8efa-3b3d2bc584b9",
+            "layerName": "wall",
+            "tilesets": [
+                "dungeon"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "b540b96f-37ea-4aed-8c51-05371dcae88e",
+            "label": "door_1",
+            "tilemapId": "0a20058f-4feb-4953-8efa-3b3d2bc584b9",
+            "layerName": "door",
+            "tilesets": [
+                "dungeon"
+            ]
+        },
+        {
+            "type": "Ellipse",
+            "id": "9b186009-7d8f-437f-b7c3-ec16b96e44c7",
+            "label": "ellipse_1",
+            "scope": "CLASS",
+            "x": 336,
+            "y": 284,
+            "scaleX": 0.41521475468259583,
+            "scaleY": 0.36636199163825234,
+            "alpha": 0,
+            "isFilled": true,
+            "width": 128,
+            "height": 128
+        },
+        {
+            "prefabId": "099bf344-2ff4-40e5-990f-46bd32309d6c",
+            "id": "d4a03a1a-f930-4434-a8dc-dff76c9c08da",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "player",
+            "scope": "CLASS",
+            "x": 305,
+            "y": 392
+        },
+        {
+            "prefabId": "38bed3a9-65c3-49c7-867c-7d7e5b967c51",
+            "id": "57456df4-b059-48dc-a498-5dbc9f60a778",
+            "label": "sceneInOut",
+            "scope": "CLASS"
+        }
+    ],
+    "plainObjects": [
+        {
+            "id": "518ad1a4-a9e0-4231-a93b-2592c09551be",
+            "type": "Keyboard.Key",
+            "label": "space"
+        },
+        {
+            "id": "0a20058f-4feb-4953-8efa-3b3d2bc584b9",
+            "type": "Tilemap",
+            "label": "map",
+            "key": "init-scene",
+            "tilesets": [
+                {
+                    "name": "dungeon",
+                    "imageKey": "dungeon_tiles"
+                }
+            ]
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

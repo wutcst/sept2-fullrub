@@ -1,5 +1,5 @@
 {
-    "id": "ca949479-ab4d-45d5-b856-2cbecbd8d127",
+    "id": "38bed3a9-65c3-49c7-867c-7d7e5b967c51",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -12,7 +12,7 @@
     "displayList": [
         {
             "type": "ScriptNode",
-            "id": "00cda4d5-1904-4e5c-b813-c14cc09591aa",
+            "id": "7ff72b06-655e-4860-a811-4df13b93c15c",
             "label": "scriptnode_1"
         }
     ],
