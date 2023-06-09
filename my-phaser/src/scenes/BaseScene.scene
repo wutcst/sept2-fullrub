@@ -1,0 +1,67 @@
+{
+    "id": "3943bdce-74f7-49c2-a581-5623c78f80cb",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "BaseScene",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640
+    },
+    "displayList": [
+        {
+            "type": "TilemapLayer",
+            "id": "d7e1414b-218f-43b2-958c-3f2e2719adfb",
+            "label": "ground_1",
+            "tilemapId": "48b43aef-faff-435f-a9ad-7949cbb606ef",
+            "layerName": "Ground",
+            "tilesets": [
+                "dungeon"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "821c981a-3f78-4bd7-9570-6129eec3be66",
+            "label": "walls_1",
+            "tilemapId": "48b43aef-faff-435f-a9ad-7949cbb606ef",
+            "layerName": "Walls",
+            "tilesets": [
+                "dungeon"
+            ]
+        },
+        {
+            "prefabId": "099bf344-2ff4-40e5-990f-46bd32309d6c",
+            "id": "215c35c6-6acf-47bb-986e-c70c5fbb6983",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "player",
+            "scope": "CLASS",
+            "x": 188,
+            "y": 337
+        }
+    ],
+    "plainObjects": [
+        {
+            "id": "48b43aef-faff-435f-a9ad-7949cbb606ef",
+            "type": "Tilemap",
+            "label": "dungeon",
+            "key": "dungeon",
+            "tilesets": [
+                {
+                    "name": "dungeon",
+                    "imageKey": "dungeon_tiles"
+                }
+            ]
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

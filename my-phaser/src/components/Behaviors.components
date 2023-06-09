@@ -1,5 +1,53 @@
 {
-    "components": [],
+    "components": [
+        {
+            "name": "SceneInOut",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Container",
+            "properties": [
+                {
+                    "name": "inEase",
+                    "label": "进入",
+                    "tooltip": "Property 1",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "outEase",
+                    "label": "出去",
+                    "tooltip": "Property 1",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "inTime",
+                    "label": "进入时间间隔",
+                    "tooltip": "Property 2",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "outTime",
+                    "label": "出去事件间隔",
+                    "tooltip": "Property 3",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                }
+            ]
+        }
+    ],
     "meta": {
         "app": "Phaser Editor 2D - User Components Editor",
         "url": "https://phasereditor2d.com",

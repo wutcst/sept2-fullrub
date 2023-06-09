@@ -30,7 +30,6 @@ export default class PushActionScript extends ScriptNode {
 			duration: 80,
 			yoyo: true,
 			onYoyo: () => {
-
 				this.executeChildren(args);
 			}
 		});
