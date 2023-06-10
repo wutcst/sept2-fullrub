@@ -7,39 +7,29 @@ import Phaser from "phaser";
 /* END-USER-IMPORTS */
 
 export default interface Player {
-  body: Phaser.Physics.Arcade.Body;
+
+	 body: Phaser.Physics.Arcade.Body;
 }
 
 export default class Player extends Phaser.Physics.Arcade.Sprite {
-  constructor(
-    scene: Phaser.Scene,
-    x?: number,
-    y?: number,
-    texture?: string,
-    frame?: number | string
-  ) {
-    super(
-      scene,
-      x ?? 385,
-      y ?? 397,
-      texture || "fauna_1",
-      frame ?? "walk-down-3.png"
-    );
 
-    scene.physics.add.existing(this, false);
-    this.body.setSize(32, 32, false);
+	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
+		super(scene, x ?? 385, y ?? 397, texture || "fauna_1", frame ?? "walk-down-3.png");
 
-    /* START-USER-CTR-CODE */
+		scene.physics.add.existing(this, false);
+		this.body.setSize(32, 32, false);
+
+		/* START-USER-CTR-CODE */
     // Write your code here.
     if (scene.input.keyboard) {
       this.cursors = scene.input.keyboard.createCursorKeys();
     }
     /* END-USER-CTR-CODE */
-  }
+	}
 
-  public speed: number = 100;
+	public speed: number = 100;
 
-  /* START-USER-CODE */
+	/* START-USER-CODE */
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
 
   // Write your code here.

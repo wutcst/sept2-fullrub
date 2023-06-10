@@ -12,12 +12,12 @@ export default class Global extends Phaser.Scene {
     const dataManager = new DataManager();
     const playerData = new PlayerData();
     dataManager.printf();
-    this.dataManage = dataManager;
+    this.dataManager = dataManager;
     this.playerData = playerData;
   }
 
   playerData: PlayerData;
-  dataManage: DataManager;
+  dataManager: DataManager;
 
   preload() {
     this.load.pack("pack", preloadAssetPackUrl);
