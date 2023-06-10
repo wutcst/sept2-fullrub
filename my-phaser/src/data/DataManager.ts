@@ -1,3 +1,4 @@
+//software test
 import Room, { Direaction } from "./Room";
 import Item from "./Item";
 export default class DataManager {
