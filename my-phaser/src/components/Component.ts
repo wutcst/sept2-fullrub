@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+//software test
+>>>>>>> feature-branch-2
 // You can write more code here
 
 /* START OF COMPILED CODE */
