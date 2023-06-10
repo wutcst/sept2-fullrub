@@ -13,20 +13,24 @@
     "displayList": [
         {
             "type": "TilemapLayer",
-            "id": "d7e1414b-218f-43b2-958c-3f2e2719adfb",
+            "id": "d60de8d5-35e1-4a2b-9add-3d6f5d2eaa53",
             "label": "ground_1",
-            "tilemapId": "48b43aef-faff-435f-a9ad-7949cbb606ef",
-            "layerName": "Ground",
+            "x": -13,
+            "y": -91,
+            "tilemapId": "474f0664-1ea8-4953-b50b-df5b11ecb182",
+            "layerName": "ground",
             "tilesets": [
                 "dungeon"
             ]
         },
         {
             "type": "TilemapLayer",
-            "id": "821c981a-3f78-4bd7-9570-6129eec3be66",
-            "label": "walls_1",
-            "tilemapId": "48b43aef-faff-435f-a9ad-7949cbb606ef",
-            "layerName": "Walls",
+            "id": "e893defc-5b03-4d19-a90a-96133a84448c",
+            "label": "wall_1",
+            "x": -13,
+            "y": -91,
+            "tilemapId": "474f0664-1ea8-4953-b50b-df5b11ecb182",
+            "layerName": "wall",
             "tilesets": [
                 "dungeon"
             ]
@@ -40,16 +44,172 @@
             ],
             "label": "player",
             "scope": "CLASS",
-            "x": 188,
-            "y": 337
+            "x": 279,
+            "y": 320
+        },
+        {
+            "type": "Container",
+            "id": "c2600d7d-f3c3-4ffd-a2cc-a1739fed21b1",
+            "label": "container_1",
+            "scope": "CLASS",
+            "list": [
+                {
+                    "prefabId": "255a9658-0c9e-4dba-b008-c8a135dc4b3d",
+                    "id": "01ce8dfc-8190-4de8-805e-448507dd61a9",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "alpha",
+                        "direaction"
+                    ],
+                    "label": "collideDector_1",
+                    "direaction": "south",
+                    "x": 329,
+                    "y": 419,
+                    "alpha": 0
+                },
+                {
+                    "prefabId": "255a9658-0c9e-4dba-b008-c8a135dc4b3d",
+                    "id": "b9d2e0fb-3dd8-4e90-80a7-a1f4ed7f3c16",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "alpha",
+                        "direaction",
+                        "alphaTopLeft",
+                        "alphaTopRight",
+                        "alphaBottomLeft",
+                        "alphaBottomRight"
+                    ],
+                    "label": "collideDector",
+                    "direaction": "east",
+                    "x": 500,
+                    "y": 287,
+                    "alpha": 0,
+                    "alphaTopLeft": 0,
+                    "alphaTopRight": 0,
+                    "alphaBottomLeft": 0,
+                    "alphaBottomRight": 0
+                },
+                {
+                    "prefabId": "255a9658-0c9e-4dba-b008-c8a135dc4b3d",
+                    "id": "18400037-e3ad-4aea-87d8-1b547e62756f",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "alpha",
+                        "direaction",
+                        "alphaTopLeft",
+                        "alphaTopRight",
+                        "alphaBottomLeft",
+                        "alphaBottomRight"
+                    ],
+                    "label": "collideDector_2",
+                    "direaction": "west",
+                    "x": 147,
+                    "y": 286,
+                    "alpha": 0,
+                    "alphaTopLeft": 0,
+                    "alphaTopRight": 0,
+                    "alphaBottomLeft": 0,
+                    "alphaBottomRight": 0
+                },
+                {
+                    "prefabId": "255a9658-0c9e-4dba-b008-c8a135dc4b3d",
+                    "id": "9e51e1fe-6bf0-4e6a-9beb-f091f7ce2913",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "alpha",
+                        "direaction",
+                        "alphaTopLeft",
+                        "alphaTopRight",
+                        "alphaBottomLeft",
+                        "alphaBottomRight"
+                    ],
+                    "label": "collideDector_3",
+                    "direaction": "north",
+                    "x": 330,
+                    "y": 177,
+                    "alpha": 0,
+                    "alphaTopLeft": 0,
+                    "alphaTopRight": 0,
+                    "alphaBottomLeft": 0,
+                    "alphaBottomRight": 0
+                }
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "3aee6d2c-3e16-4826-b848-34bc00070d60",
+            "label": "north_1",
+            "x": -14,
+            "y": -100,
+            "tilemapId": "474f0664-1ea8-4953-b50b-df5b11ecb182",
+            "layerName": "north",
+            "tilesets": [
+                "dungeon"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "0ba5fdd2-dfd0-4ea6-8c54-24bc16b5d2e4",
+            "label": "west_1",
+            "x": -17,
+            "y": -96,
+            "tilemapId": "474f0664-1ea8-4953-b50b-df5b11ecb182",
+            "layerName": "west",
+            "tilesets": [
+                "dungeon"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "a9d525d8-d6b2-4eca-98b3-b4ce1f80a07b",
+            "label": "east_1",
+            "x": -8,
+            "y": -91,
+            "tilemapId": "474f0664-1ea8-4953-b50b-df5b11ecb182",
+            "layerName": "east",
+            "tilesets": [
+                "dungeon"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "73fd89d7-b264-4fa6-836f-96617e407f0c",
+            "label": "south_1",
+            "x": -11,
+            "y": -91,
+            "tilemapId": "474f0664-1ea8-4953-b50b-df5b11ecb182",
+            "layerName": "south",
+            "tilesets": [
+                "dungeon"
+            ]
+        },
+        {
+            "type": "Text",
+            "id": "5627b2ea-fdb8-4e4c-be40-7d6f0b1ead07",
+            "label": "text_1",
+            "scope": "CLASS",
+            "x": 245,
+            "y": 112,
+            "text": "xxxxxxxxxxxxxxxx",
+            "align": "center",
+            "fontSize": "20px"
+        },
+        {
+            "prefabId": "38bed3a9-65c3-49c7-867c-7d7e5b967c51",
+            "id": "adb608d5-8e72-4977-b599-429970c27061",
+            "label": "sceneInOut"
         }
     ],
     "plainObjects": [
         {
-            "id": "48b43aef-faff-435f-a9ad-7949cbb606ef",
+            "id": "474f0664-1ea8-4953-b50b-df5b11ecb182",
             "type": "Tilemap",
-            "label": "dungeon",
-            "key": "dungeon",
+            "label": "tilemap",
+            "key": "same-scene",
             "tilesets": [
                 {
                     "name": "dungeon",

@@ -54,6 +54,11 @@
                 "key": "player-anims"
             },
             {
+                "url": "assets/public/dungeons/same-scene.json",
+                "type": "tilemapTiledJSON",
+                "key": "same-scene"
+            },
+            {
                 "url": "assets/public/items/treasure.png",
                 "type": "image",
                 "key": "treasure"

@@ -8,24 +8,23 @@ import Phaser from "phaser";
 /* END-USER-IMPORTS */
 
 export default class SceneInOut extends ScriptNode {
+  constructor(
+    parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene
+  ) {
+    super(parent);
 
-	constructor(parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene) {
-		super(parent);
-
-		/* START-USER-CTR-CODE */
+    /* START-USER-CTR-CODE */
     // Write your code here.
     /* END-USER-CTR-CODE */
-	}
+  }
 
-	/* START-USER-CODE */
+  /* START-USER-CODE */
   time = 1000;
 
   protected awake(): void {
-    console.log("awake");
     this.execute(true);
   }
   execute(...args: any[]): void {
-    console.log(args);
     let [fadIn] = args;
     //添加入场动画
     const scene = this.scene;
