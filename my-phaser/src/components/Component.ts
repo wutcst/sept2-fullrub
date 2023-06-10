@@ -1,4 +1,3 @@
-
 // You can write more code here
 
 /* START OF COMPILED CODE */
@@ -8,27 +7,26 @@ import Phaser from "phaser";
 /* END-USER-IMPORTS */
 
 export default class Component {
+  constructor(gameObject: Phaser.GameObjects.Image) {
+    this.gameObject = gameObject;
+    (gameObject as any)["__Component"] = this;
 
-	constructor(gameObject: Phaser.GameObjects.Image) {
-		this.gameObject = gameObject;
-		(gameObject as any)["__Component"] = this;
+    /* START-USER-CTR-CODE */
+    // Write your code here.
+    /* END-USER-CTR-CODE */
+  }
 
-		/* START-USER-CTR-CODE */
-		// Write your code here.
-		/* END-USER-CTR-CODE */
-	}
+  static getComponent(gameObject: Phaser.GameObjects.Image): Component {
+    return (gameObject as any)["__Component"];
+  }
 
-	static getComponent(gameObject: Phaser.GameObjects.Image): Component {
-		return (gameObject as any)["__Component"];
-	}
+  private gameObject: Phaser.GameObjects.Image;
 
-	private gameObject: Phaser.GameObjects.Image;
+  /* START-USER-CODE */
 
-	/* START-USER-CODE */
+  // Write your code here.
 
-	// Write your code here.
-
-	/* END-USER-CODE */
+  /* END-USER-CODE */
 }
 
 /* END OF COMPILED CODE */

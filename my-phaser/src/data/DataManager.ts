@@ -51,4 +51,21 @@ export default class DataManager {
       console.log(ans);
     });
   }
+
+  goNext(direaction: string) {
+    switch (direaction) {
+      case "north":
+        this.currentRoom = this.currentRoom.getNorth()!;
+        break;
+      case "south":
+        this.currentRoom = this.currentRoom.getSouth()!;
+        break;
+      case "east":
+        this.currentRoom = this.currentRoom.getEast()!;
+        break;
+      case "west":
+        this.currentRoom = this.currentRoom.getWest()!;
+        break;
+    }
+  }
 }
