@@ -1,0 +1,76 @@
+{
+    "id": "721a2c21-51b0-493b-8584-18bf3073e9ef",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "9057252e-a45f-4a04-9ce1-da752751caf3",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "Container",
+                    "id": "49afb9f5-0b9f-4b21-8e4d-13c221e4aaa2",
+                    "label": "container",
+                    "scope": "CLASS",
+                    "list": [
+                        {
+                            "type": "Rectangle",
+                            "id": "dbc65c5f-3bd9-44ef-aaa8-bd6e6730eb15",
+                            "label": "rectangle",
+                            "scope": "CLASS",
+                            "scaleX": 0.6006538157466538,
+                            "scaleY": 0.5134862302943727,
+                            "originX": 0,
+                            "originY": 0,
+                            "isFilled": true,
+                            "fillColor": "#44fa9b",
+                            "width": 128,
+                            "height": 128
+                        },
+                        {
+                            "type": "Image",
+                            "id": "4d0cf3c4-0789-4c43-a155-8ca4fe11cb1a",
+                            "label": "image",
+                            "scope": "CLASS",
+                            "texture": {
+                                "key": "weapon_knife"
+                            },
+                            "x": 39,
+                            "y": 33,
+                            "scaleX": 2.5,
+                            "scaleY": 2.5
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    },
+    "prefabProperties": [
+        {
+            "name": "myTexture",
+            "label": "Property 1",
+            "tooltip": "Property 1",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "string"
+            }
+        }
+    ]
+}

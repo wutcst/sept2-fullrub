@@ -3,6 +3,7 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import inject from "../utils/inject";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -37,16 +38,19 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     /* END-USER-CTR-CODE */
   }
 
-  public speed: number = 100;
+  public speed: number = 200;
 
   /* START-USER-CODE */
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
 
   // Write your code here.
   update(...args: any[]): void {
-    // console.log("你好");
     let { left, right, up, down } = this.cursors;
-
+    let { global } = inject(this.scene);
+    global.playerData.nowPosition = {
+      x: this.x,
+      y: this.y,
+    };
     this.setVelocity(0, 0);
     if (left.isDown) {
       this.setVelocityX(-this.speed);

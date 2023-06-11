@@ -1,5 +1,5 @@
 {
-    "id": "099bf344-2ff4-40e5-990f-46bd32309d6c",
+    "id": "255a9658-0c9e-4dba-b008-c8a135dc4b3d",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -12,15 +12,10 @@
     },
     "displayList": [
         {
-            "type": "ArcadeSprite",
-            "id": "ac0c5fdf-8a49-4347-bd7b-1b61dbd14a5a",
-            "label": "arcadesprite_1",
-            "texture": {
-                "key": "fauna_1",
-                "frame": "walk-down-3.png"
-            },
-            "x": 385,
-            "y": 397,
+            "type": "ArcadeImage",
+            "id": "7033bdeb-d06a-41fb-98b3-16e431d7a1ea",
+            "label": "arcadeimage_1",
+            "texture": {},
             "body.width": 32,
             "body.height": 32
         }
@@ -34,10 +29,30 @@
     },
     "prefabProperties": [
         {
-            "name": "speed",
-            "label": "速度",
+            "name": "direaction",
+            "label": "方向",
             "tooltip": "Property 1",
-            "defValue": 200,
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "string"
+            }
+        },
+        {
+            "name": "newX",
+            "label": "newx",
+            "tooltip": "Property 1",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "newY",
+            "label": "newy",
+            "tooltip": "Property 1",
+            "defValue": 0,
             "customDefinition": false,
             "type": {
                 "id": "number"

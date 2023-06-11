@@ -2,12 +2,13 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "../script-nodes-basic/ScriptNode";
 import Phaser from "phaser";
+import ScriptNode from "../script-nodes-basic/ScriptNode";
+import BaseScene from "./../scenes/BaseScene";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class PushActionScript extends ScriptNode {
+export default class OpenScript extends ScriptNode {
   constructor(
     parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene
   ) {
@@ -19,19 +20,18 @@ export default class PushActionScript extends ScriptNode {
   }
 
   /* START-USER-CODE */
+  protected awake(): void {
+    let theScene = this.scene.scene;
 
-  override execute(args?: any): void {
-    this.scene.add.tween({
-      targets: this.gameObject,
-      scaleX: "*=0.8",
-      scaleY: "*=0.8",
-      duration: 80,
-      yoyo: true,
-      onYoyo: () => {
-        this.executeChildren(args);
-      },
+    let iKey = this.scene.input.keyboard?.addKey(
+      Phaser.Input.Keyboard.KeyCodes.I
+    );
+    iKey?.on("down", () => {
+      theScene.pause("BaseScene");
+      theScene.launch("BackPack");
     });
   }
+  // Write your code here.
 
   /* END-USER-CODE */
 }

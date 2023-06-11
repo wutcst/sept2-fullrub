@@ -21,11 +21,9 @@ export default class SceneInOut extends ScriptNode {
   time = 1000;
 
   protected awake(): void {
-    console.log("awake");
     this.execute(true);
   }
   execute(...args: any[]): void {
-    console.log(args);
     let [fadIn] = args;
     //添加入场动画
     const scene = this.scene;
