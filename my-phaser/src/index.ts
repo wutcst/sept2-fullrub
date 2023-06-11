@@ -5,6 +5,7 @@ import Preload from "./scenes/Preload";
 import InitHome from "./scenes/InitHome";
 import BaseScene from "./scenes/BaseScene";
 import Global from "./scenes/Global";
+import BackPack from "./scenes/BackPack";
 
 window.addEventListener("load", function () {
   const game = new Phaser.Game({
@@ -25,7 +26,7 @@ window.addEventListener("load", function () {
         debug: true,
       },
     },
-    scene: [Global, Preload, Level, InitHome, BaseScene],
+    scene: [Global, Preload, Level, InitHome, BaseScene, BackPack],
   });
   game.scene.start("Boot");
 });

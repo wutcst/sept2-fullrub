@@ -1,4 +1,4 @@
-import Item from "./Item";
+import ItemInfo from "./ItemInfo";
 export enum Direaction {
   NORTH,
   SOUTH,
@@ -15,7 +15,7 @@ export default class Room {
   name: string;
   description: string;
   direactions: Array<Room | null>;
-  items: Array<Item | null>;
+  items: Array<ItemInfo | null>;
 
   constructor(name: string, description: string) {
     (this.name = name), (this.description = description);
@@ -68,5 +68,13 @@ export default class Room {
   }
   getWest() {
     return this.direactions[3];
+  }
+
+  filterItems() {
+    this.items = this.items.filter((item) => {
+      if (item) {
+        return true;
+      }
+    });
   }
 }

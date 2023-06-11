@@ -60,13 +60,25 @@
                         "x",
                         "y",
                         "alpha",
-                        "direaction"
+                        "direaction",
+                        "alphaTopLeft",
+                        "alphaTopRight",
+                        "alphaBottomLeft",
+                        "alphaBottomRight",
+                        "newX",
+                        "newY"
                     ],
                     "label": "collideDector_1",
                     "direaction": "south",
+                    "newX": 331,
+                    "newY": 236,
                     "x": 329,
                     "y": 419,
-                    "alpha": 0
+                    "alpha": 0,
+                    "alphaTopLeft": 0,
+                    "alphaTopRight": 0,
+                    "alphaBottomLeft": 0,
+                    "alphaBottomRight": 0
                 },
                 {
                     "prefabId": "255a9658-0c9e-4dba-b008-c8a135dc4b3d",
@@ -79,10 +91,14 @@
                         "alphaTopLeft",
                         "alphaTopRight",
                         "alphaBottomLeft",
-                        "alphaBottomRight"
+                        "alphaBottomRight",
+                        "newX",
+                        "newY"
                     ],
                     "label": "collideDector",
                     "direaction": "east",
+                    "newX": 190,
+                    "newY": 284,
                     "x": 500,
                     "y": 287,
                     "alpha": 0,
@@ -102,10 +118,14 @@
                         "alphaTopLeft",
                         "alphaTopRight",
                         "alphaBottomLeft",
-                        "alphaBottomRight"
+                        "alphaBottomRight",
+                        "newX",
+                        "newY"
                     ],
                     "label": "collideDector_2",
                     "direaction": "west",
+                    "newX": 463,
+                    "newY": 281,
                     "x": 147,
                     "y": 286,
                     "alpha": 0,
@@ -125,10 +145,14 @@
                         "alphaTopLeft",
                         "alphaTopRight",
                         "alphaBottomLeft",
-                        "alphaBottomRight"
+                        "alphaBottomRight",
+                        "newX",
+                        "newY"
                     ],
                     "label": "collideDector_3",
                     "direaction": "north",
+                    "newX": 336,
+                    "newY": 381,
                     "x": 330,
                     "y": 177,
                     "alpha": 0,
@@ -192,16 +216,17 @@
             "id": "5627b2ea-fdb8-4e4c-be40-7d6f0b1ead07",
             "label": "text_1",
             "scope": "CLASS",
-            "x": 245,
-            "y": 112,
-            "text": "xxxxxxxxxxxxxxxx",
+            "x": 169,
+            "y": 164,
+            "text": "xxxx",
             "align": "center",
-            "fontSize": "20px"
+            "fontSize": "20px",
+            "color": "#ebf935ff"
         },
         {
-            "prefabId": "38bed3a9-65c3-49c7-867c-7d7e5b967c51",
-            "id": "adb608d5-8e72-4977-b599-429970c27061",
-            "label": "sceneInOut"
+            "prefabId": "39aa6888-ea33-4317-8f78-206c56cbb4ca",
+            "id": "773e17b2-2374-4241-b9aa-e9505ccc9105",
+            "label": "openScript"
         }
     ],
     "plainObjects": [
