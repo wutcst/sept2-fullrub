@@ -2,6 +2,11 @@
     "section1": {
         "files": [
             {
+                "url": "assets/public/ui/close.png",
+                "type": "image",
+                "key": "close"
+            },
+            {
                 "url": "assets/public/tiles/dungeon-01.json",
                 "type": "tilemapTiledJSON",
                 "key": "dungeon"

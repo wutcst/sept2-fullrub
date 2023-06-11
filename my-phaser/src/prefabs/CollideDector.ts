@@ -26,6 +26,8 @@ export default class CollideDector extends Phaser.Physics.Arcade.Image {
 	}
 
 	public direaction: string = "";
+	public newX: number = 0;
+	public newY: number = 0;
 
 	/* START-USER-CODE */
 

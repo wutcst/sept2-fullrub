@@ -1,0 +1,114 @@
+{
+    "id": "16703a24-5e33-4a11-bd36-b879ee8c797d",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "BackPack",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640
+    },
+    "displayList": [
+        {
+            "type": "Rectangle",
+            "id": "2c9a591b-33e8-47e6-a40b-ce73f038839d",
+            "label": "rectangle_1",
+            "x": 320,
+            "y": 323,
+            "scaleX": 4.129583260508247,
+            "scaleY": 2.8034421246791066,
+            "alpha": 0.5,
+            "isFilled": true,
+            "fillColor": "#878282",
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Image",
+            "id": "b29c09f7-248a-4f05-9ccd-99dce30f748f",
+            "label": "close",
+            "scope": "CLASS",
+            "texture": {
+                "key": "close"
+            },
+            "x": 565,
+            "y": 159,
+            "list": [
+                {
+                    "prefabId": "0e39177a-6e19-4b56-a7c2-2360a2e41505",
+                    "id": "88155767-1c12-459e-8b0a-5d4a7e89855b",
+                    "label": "pushActionScript_1",
+                    "scope": "CLASS"
+                }
+            ]
+        },
+        {
+            "type": "Rectangle",
+            "id": "5c88b312-cf79-47e9-b28a-72e6672ad433",
+            "label": "rectangle_2",
+            "x": 58,
+            "y": 146,
+            "scaleX": 3.8107501314576306,
+            "scaleY": 0.20946718260131159,
+            "originX": 0,
+            "originY": 0,
+            "isFilled": true,
+            "fillColor": "#925c4a",
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Text",
+            "id": "5e2b93e9-7573-46cd-9871-08d7f7274940",
+            "label": "text_1",
+            "x": 307,
+            "y": 149,
+            "originX": 0.5,
+            "text": "游戏背包",
+            "fontSize": "20px",
+            "color": "#f2f01cff"
+        },
+        {
+            "type": "Rectangle",
+            "id": "e7b3099b-daeb-4e81-a4f7-a2108fe93b84",
+            "label": "selected",
+            "scope": "CLASS",
+            "x": 216,
+            "y": 231,
+            "isFilled": true,
+            "fillColor": "#ffffff",
+            "fillAlpha": 0,
+            "strokeColor": "#dc0b0b",
+            "lineWidth": 4,
+            "isStroked": true,
+            "width": 50,
+            "height": 50
+        },
+        {
+            "type": "Text",
+            "id": "735f284b-f3f9-4572-995d-2e31bbe5429e",
+            "label": "text_2",
+            "x": 110,
+            "y": 468,
+            "text": "点击Q丢弃选中的物品\n",
+            "color": "#f7f6fbff"
+        },
+        {
+            "type": "Text",
+            "id": "6140042d-2b83-447d-ac50-759c0685d230",
+            "label": "text_3",
+            "x": 336,
+            "y": 468,
+            "text": "鼠标悬浮上边可以查看物品信息"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

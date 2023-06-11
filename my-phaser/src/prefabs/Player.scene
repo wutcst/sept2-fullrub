@@ -37,7 +37,7 @@
             "name": "speed",
             "label": "速度",
             "tooltip": "Property 1",
-            "defValue": 100,
+            "defValue": 200,
             "customDefinition": false,
             "type": {
                 "id": "number"
