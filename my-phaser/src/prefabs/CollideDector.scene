@@ -30,12 +30,32 @@
     "prefabProperties": [
         {
             "name": "direaction",
-            "label": "Property 1",
+            "label": "方向",
             "tooltip": "Property 1",
             "defValue": "",
             "customDefinition": false,
             "type": {
                 "id": "string"
+            }
+        },
+        {
+            "name": "newX",
+            "label": "newx",
+            "tooltip": "Property 1",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "newY",
+            "label": "newy",
+            "tooltip": "Property 1",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
             }
         }
     ]

@@ -3,40 +3,54 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import inject from "../utils/inject";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
 export default interface Player {
-
-	 body: Phaser.Physics.Arcade.Body;
+  body: Phaser.Physics.Arcade.Body;
 }
 
 export default class Player extends Phaser.Physics.Arcade.Sprite {
+  constructor(
+    scene: Phaser.Scene,
+    x?: number,
+    y?: number,
+    texture?: string,
+    frame?: number | string
+  ) {
+    super(
+      scene,
+      x ?? 385,
+      y ?? 397,
+      texture || "fauna_1",
+      frame ?? "walk-down-3.png"
+    );
 
-	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 385, y ?? 397, texture || "fauna_1", frame ?? "walk-down-3.png");
+    scene.physics.add.existing(this, false);
+    this.body.setSize(32, 32, false);
 
-		scene.physics.add.existing(this, false);
-		this.body.setSize(32, 32, false);
-
-		/* START-USER-CTR-CODE */
+    /* START-USER-CTR-CODE */
     // Write your code here.
     if (scene.input.keyboard) {
       this.cursors = scene.input.keyboard.createCursorKeys();
     }
     /* END-USER-CTR-CODE */
-	}
+  }
 
-	public speed: number = 100;
+  public speed: number = 200;
 
-	/* START-USER-CODE */
+  /* START-USER-CODE */
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
 
   // Write your code here.
   update(...args: any[]): void {
-    // console.log("你好");
     let { left, right, up, down } = this.cursors;
-
+    let { global } = inject(this.scene);
+    global.playerData.nowPosition = {
+      x: this.x,
+      y: this.y,
+    };
     this.setVelocity(0, 0);
     if (left.isDown) {
       this.setVelocityX(-this.speed);
