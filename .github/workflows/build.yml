@@ -36,7 +36,7 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           server-id: alimaven
-          java-version: 17
+          java-version: 11
       # Publish to Apache Maven Central
       - run: mvn install:install-file "-Dfile=cobra.jar" "-DgroupId=com.cobra" "-DartifactId=cobra" "-Dversion=0.98.4" "-Dpackaging=jar" "-DgeneratePom=true"
       #- run: mvn clean compile
