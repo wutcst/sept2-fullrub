@@ -2,22 +2,15 @@ package com.example.web_project.controller;
 
 import com.example.web_project.entity.User;
 import com.example.web_project.service.UserService;
-import net.sf.jsqlparser.schema.Database;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 @RestController
-public class mainController {
+public class MainController {
 
     @Autowired
     private UserService userService;
