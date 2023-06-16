@@ -2,6 +2,11 @@
     "section1": {
         "files": [
             {
+                "url": "assets/public/items/药水2.png",
+                "type": "image",
+                "key": "picture"
+            },
+            {
                 "url": "assets/public/ui/close.png",
                 "type": "image",
                 "key": "close"

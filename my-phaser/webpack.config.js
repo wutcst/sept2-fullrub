@@ -3,7 +3,7 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
-
+const { VueLoaderPlugin } = require("vue-loader/dist/index");
 module.exports = {
   entry: {
     main: "./src/index.ts",
@@ -28,18 +28,30 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: "ts-loader",
+        loader: "ts-loader",
         exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        },
       },
       {
         test: /\.json/,
         type: "asset/resource",
         exclude: /node_modules/,
       },
+      {
+        test: /\.vue$/,
+        loader: "vue-loader",
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+      { test: /\.(png|jpe?g|gif|svg|webp)$/, type: "asset/resource" },
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js", ".vue"],
     alias: {
       "~": path.resolve(__dirname, "src"),
     },
@@ -72,5 +84,6 @@ module.exports = {
       ],
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new VueLoaderPlugin(),
   ],
 };

@@ -4,7 +4,6 @@
 
 import Phaser from "phaser";
 import ScriptNode from "../script-nodes-basic/ScriptNode";
-import BaseScene from "./../scenes/BaseScene";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 

@@ -3,9 +3,17 @@ import Room, { Direaction } from "./Room";
 import ItemInfo from "./ItemInfo";
 import { itemArea } from "~/config";
 import { itemKind } from "~/constant";
+import { doorPosition } from "~/constant";
+import Itemfactory from "../utils/Itemfactory";
+interface RoomDirection {
+  room: Room;
+  direction: "north" | "south" | "east" | "west";
+}
+
 export default class DataManager {
   rooms: Room[];
   currentRoom: Room;
+  history: RoomDirection[] = [];
   constructor() {
     this.rooms = [];
     this.currentRoom = new Room("entry", "这是一个初始房间");
@@ -43,9 +51,10 @@ export default class DataManager {
       let keys = Object.keys(itemKind);
 
       let index = Math.floor(Math.random() * keys.length);
-      // let key = keys[index] as string;
-      let info = itemKind.blade!;
-      let item = new ItemInfo(info.name, info.weight, "", info.type);
+      let key = keys[index] as string;
+      console.log(key);
+      let info = itemKind[key];
+      let item = Itemfactory.create(info.type);
       item.x =
         Math.floor(
           Math.random() * (itemArea.rightBottomX - itemArea.leftTopX)
@@ -86,19 +95,64 @@ export default class DataManager {
   }
 
   goNext(direaction: string) {
+    let current = this.currentRoom;
+    let rightDir = "";
     switch (direaction) {
       case "north":
         this.currentRoom = this.currentRoom.getNorth()!;
+        rightDir = "south";
         break;
       case "south":
         this.currentRoom = this.currentRoom.getSouth()!;
+        rightDir = "north";
         break;
       case "east":
         this.currentRoom = this.currentRoom.getEast()!;
+        rightDir = "west";
         break;
       case "west":
+        rightDir = "east";
         this.currentRoom = this.currentRoom.getWest()!;
         break;
     }
+    this.recording(current, rightDir);
+  }
+
+  recording(room: Room, direction: any) {
+    this.history.push({
+      room,
+      direction,
+    });
+  }
+
+  back(): {
+    x?: number;
+    y?: number;
+    isOk: boolean;
+  } {
+    console.log(this.history);
+    if (this.history.length > 0) {
+      let roomDireaciton = this.history.pop();
+      this.currentRoom = roomDireaciton.room;
+      let theDir = doorPosition[roomDireaciton.direction];
+      return {
+        x: theDir[0],
+        y: theDir[1],
+        isOk: true,
+      };
+    }
+    return {
+      isOk: false,
+    };
+  }
+
+  getSaveData() {
+    let _rooms = this.rooms.map((item) => item.getSaveData());
+    let _history = this.history.map((item) => item.room.id);
+    return {
+      rooms: _rooms,
+      currentRoom: this.currentRoom.getSaveData(),
+      history: _history,
+    };
   }
 }
