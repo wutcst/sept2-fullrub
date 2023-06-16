@@ -5,8 +5,8 @@
 import Phaser from "phaser";
 import PushActionScript from "../script-nodes/PushActionScript";
 /* START-USER-IMPORTS */
+import { createItem, createSpeechBubble } from "~/game";
 import inject from "~/utils/inject";
-import { createItem, createSpeechBubble } from "~/utils/game";
 /* END-USER-IMPORTS */
 
 export default class BackPack extends Phaser.Scene {
@@ -56,17 +56,27 @@ export default class BackPack extends Phaser.Scene {
     selected.lineWidth = 4;
 
     // text_2
-    const text_2 = this.add.text(110, 468, "", {});
+    const text_2 = this.add.text(110, 447, "", {});
     text_2.text = "点击Q丢弃选中的物品\n";
     text_2.setStyle({ color: "#f7f6fbff" });
 
     // text_3
-    const text_3 = this.add.text(336, 468, "", {});
+    const text_3 = this.add.text(338, 446, "", {});
     text_3.text = "鼠标悬浮上边可以查看物品信息";
+
+    // capacity
+    const capacity = this.add.text(422, 150, "", {});
+    capacity.text = "New text";
+
+    // text
+    const text = this.add.text(110, 472, "", {});
+    text.text = "点击E使用物品，一些物品不能使用\n";
+    text.setStyle({ color: "#f7f6fbff" });
 
     this.pushActionScript_1 = pushActionScript_1;
     this.close = close;
     this.selected = selected;
+    this.capacity = capacity;
 
     this.events.emit("scene-awake");
   }
@@ -74,6 +84,7 @@ export default class BackPack extends Phaser.Scene {
   private pushActionScript_1!: PushActionScript;
   private close!: Phaser.GameObjects.Image;
   private selected!: Phaser.GameObjects.Rectangle;
+  private capacity!: Phaser.GameObjects.Text;
 
   /* START-USER-CODE */
   private nowSelected!: number;
@@ -86,6 +97,7 @@ export default class BackPack extends Phaser.Scene {
 
   create() {
     const { global } = inject(this);
+
     this.list = [];
     this.nowSelected = 0;
     this.editorCreate();
@@ -144,12 +156,13 @@ export default class BackPack extends Phaser.Scene {
       let x = theCol * slotSize + slotSize / 2,
         y = theRow * slotSize + slotSize / 2;
       let image = createItem(item!.getItemInterface(), this, x, y);
-      image.setScale(2.5, 2.5);
+      image.setScale(item.scale.x, item.scale.y);
+      // image.setScale(2.5, 2.5);
       inventory.add(image);
 
       image.setInteractive();
-      const width = 80;
-      const height = 80;
+      const width = 100;
+      const height = 100;
       let bubble: Phaser.GameObjects.Container | null = null;
       image.on("pointerover", () => {
         if (!bubble) {
@@ -179,6 +192,19 @@ export default class BackPack extends Phaser.Scene {
     qKey?.on("down", () => {
       this.deleteItem();
     });
+    let iKey = this.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.I);
+    iKey?.on("down", () => {
+      setTimeout(() => {
+        let { x, y } = global.playerData.nowPosition;
+        this.scene.start("BaseScene", { show: false, x, y });
+        this.scene.stop("BackPack");
+      }, 100);
+    });
+
+    let eKey = this.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+    eKey?.on("down", () => {
+      this.useItem();
+    });
   }
   pointerDown(i: number) {
     this.nowSelected = i;
@@ -202,7 +228,31 @@ export default class BackPack extends Phaser.Scene {
       this.list[this.nowSelected] = null;
     }
   }
+  useItem() {
+    //房屋中增加一个Item
+    let { global } = inject(this);
+    global.playerData.filtersItem();
+    let items = global.playerData.items;
+    let canUse = false;
+    console.log(items);
+    if (this.nowSelected < items.length && items[this.nowSelected]) {
+      let item = items[this.nowSelected];
+      canUse = item.use(global.playerData);
+      if (canUse) {
+        items[this.nowSelected] = null;
+        this.list[this.nowSelected]?.destroy();
+        this.list[this.nowSelected] = null;
+        window.$message.success("使用成功");
+        this.scene.start("BackPack");
+      } else {
+        window.$message.info("该物品不能使用");
+      }
+    }
+  }
 
+  update(time: number, delta: number): void {
+    this.showCapacity();
+  }
   updateSelected() {
     const col = this.col;
     let selectedCol = this.nowSelected % col;
@@ -211,6 +261,12 @@ export default class BackPack extends Phaser.Scene {
       selectedCol * this.slotSize + this._inventory.x,
       selectedRow * this.slotSize + this._inventory.y
     );
+  }
+
+  showCapacity() {
+    let { global } = inject(this);
+    let sum = global.playerData.getSumWeight();
+    this.capacity.setText(`容量:${sum}/${global.playerData.maxWeight}`);
   }
   /* END-USER-CODE */
 }

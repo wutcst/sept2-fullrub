@@ -6,72 +6,73 @@ import Phaser from "phaser";
 import Player from "../prefabs/Player";
 import SceneInOut from "../script-nodes/SceneInOut";
 /* START-USER-IMPORTS */
+import Global from "./Global";
+import { useViewStore } from "~/store";
 /* END-USER-IMPORTS */
 
 export default class InitHome extends Phaser.Scene {
+  constructor() {
+    super("BaseHome");
 
-	constructor() {
-		super("BaseHome");
-
-		/* START-USER-CTR-CODE */
+    /* START-USER-CTR-CODE */
     // Write your code here.
     /* END-USER-CTR-CODE */
-	}
+  }
 
-	editorCreate(): void {
+  editorCreate(): void {
+    // space
+    const space = this.input.keyboard!.addKey(
+      Phaser.Input.Keyboard.KeyCodes.SPACE
+    );
 
-		// space
-		const space = this.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+    // map
+    const map = this.add.tilemap("init-scene");
+    map.addTilesetImage("dungeon", "dungeon_tiles");
 
-		// map
-		const map = this.add.tilemap("init-scene");
-		map.addTilesetImage("dungeon", "dungeon_tiles");
+    // ground_1
+    map.createLayer("ground", ["dungeon"], 0, 0);
 
-		// ground_1
-		map.createLayer("ground", ["dungeon"], 0, 0);
+    // wall_1
+    map.createLayer("wall", ["dungeon"], 0, 0);
 
-		// wall_1
-		map.createLayer("wall", ["dungeon"], 0, 0);
+    // door_1
+    map.createLayer("door", ["dungeon"], 0, 0);
 
-		// door_1
-		map.createLayer("door", ["dungeon"], 0, 0);
+    // ellipse_1
+    const ellipse_1 = this.add.ellipse(336, 284, 128, 128);
+    ellipse_1.scaleX = 0.41521475468259583;
+    ellipse_1.scaleY = 0.36636199163825234;
+    ellipse_1.alpha = 0;
+    ellipse_1.isFilled = true;
 
-		// ellipse_1
-		const ellipse_1 = this.add.ellipse(336, 284, 128, 128);
-		ellipse_1.scaleX = 0.41521475468259583;
-		ellipse_1.scaleY = 0.36636199163825234;
-		ellipse_1.alpha = 0;
-		ellipse_1.isFilled = true;
+    // player
+    const player = new Player(this, 305, 392);
+    this.add.existing(player);
 
-		// player
-		const player = new Player(this, 305, 392);
-		this.add.existing(player);
+    // sceneInOut
+    const sceneInOut = new SceneInOut(this);
 
-		// sceneInOut
-		const sceneInOut = new SceneInOut(this);
+    this.ellipse_1 = ellipse_1;
+    this.player = player;
+    this.sceneInOut = sceneInOut;
+    this.space = space;
+    this.map = map;
 
-		this.ellipse_1 = ellipse_1;
-		this.player = player;
-		this.sceneInOut = sceneInOut;
-		this.space = space;
-		this.map = map;
+    this.events.emit("scene-awake");
+  }
 
-		this.events.emit("scene-awake");
-	}
+  private ellipse_1!: Phaser.GameObjects.Ellipse;
+  private player!: Player;
+  private sceneInOut!: SceneInOut;
+  private space!: Phaser.Input.Keyboard.Key;
+  private map!: Phaser.Tilemaps.Tilemap;
 
-	private ellipse_1!: Phaser.GameObjects.Ellipse;
-	private player!: Player;
-	private sceneInOut!: SceneInOut;
-	private space!: Phaser.Input.Keyboard.Key;
-	private map!: Phaser.Tilemaps.Tilemap;
-
-	/* START-USER-CODE */
+  /* START-USER-CODE */
   // Write your code here
 
   create() {
     this.editorCreate();
     this.inject();
-
     const wall = this.map.getLayer("wall")?.tilemapLayer;
     if (wall) {
       //   this.physics.add.existing(wall);
@@ -81,7 +82,11 @@ export default class InitHome extends Phaser.Scene {
     }
     this.physics.add.existing(this.ellipse_1);
     this.physics.add.overlap(this.player, this.ellipse_1, () => {
+      const { toggleShowBtns } = useViewStore();
+      toggleShowBtns();
       this.scene.start("BaseScene");
+      const scene: Global = this.scene.get("Global") as Global;
+      scene.text.setVisible(false);
     });
   }
   update(time: number, delta: number): void {

@@ -15,11 +15,12 @@
             "type": "Text",
             "id": "015a8f5f-d5d4-406c-a3e3-43ff67bf6602",
             "label": "text_1",
+            "scope": "CLASS",
             "x": 320,
             "y": 450,
             "originX": 0.5,
             "originY": 0.5,
-            "text": "这是主页",
+            "text": "按下空格键开始游戏",
             "fontSize": "30px"
         }
     ],

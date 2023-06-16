@@ -1,4 +1,44 @@
-import { ItemInterface } from "../data/ItemInfo";
+import { ItemInterface } from "./data/ItemInfo";
+import Phaser from "phaser";
+import Level from "./scenes/Level";
+import Preload from "./scenes/Preload";
+import InitHome from "./scenes/InitHome";
+import BaseScene from "./scenes/BaseScene";
+import Global from "./scenes/Global";
+import BackPack from "./scenes/BackPack";
+
+// import { useViewStore } from "./store";
+
+async function startGame(): Promise<Phaser.Game> {
+  // const viewState = useViewStore();
+  const game = new Phaser.Game({
+    title: "proyecto_final",
+    version: "1.0.1",
+    type: Phaser.AUTO,
+    backgroundColor: "#000000",
+    pixelArt: true,
+    scale: {
+      width: 640,
+      height: 600,
+      mode: Phaser.Scale.ScaleModes.FIT,
+      autoCenter: Phaser.Scale.Center.CENTER_BOTH,
+    },
+    physics: {
+      default: "arcade",
+      arcade: {
+        // debug: true,
+      },
+    },
+    scene: [Global, Preload, Level, InitHome, BaseScene, BackPack],
+  });
+  game.scene.start("Global");
+  return new Promise((resolve, reject) => {
+    game.events.on("ready", () => {
+      resolve(game);
+    });
+  });
+}
+
 function createSpeechBubble(
   that: Phaser.Scene,
   x: number,
@@ -73,13 +113,8 @@ function createItem(
   x: number,
   y: number
 ) {
-  let texture = "";
-  switch (item.type) {
-    case "blade":
-      texture = "weapon_knife";
-      break;
-  }
-  return that.add.image(x, y, texture);
+  let texture = item.texture;
+  return that.physics.add.image(x, y, texture);
 }
 
-export { createSpeechBubble, createItem };
+export { createSpeechBubble, createItem, startGame };

@@ -5,10 +5,11 @@
 import Phaser from "phaser";
 import Player from "../prefabs/Player";
 import CollideDector from "../prefabs/CollideDector";
+import AlertText from "../prefabs/AlertText";
 import OpenScript from "../script-nodes/OpenScript";
 /* START-USER-IMPORTS */
 import inject from "~/utils/inject";
-import { createSpeechBubble } from "~/utils/game";
+import { createSpeechBubble } from "~/game";
 import SceneInOut from "../script-nodes/SceneInOut";
 /* END-USER-IMPORTS */
 
@@ -88,9 +89,14 @@ export default class BaseScene extends Phaser.Scene {
     tilemap.createLayer("south", ["dungeon"], -11, -91);
 
     // text_1
-    const text_1 = this.add.text(169, 164, "", {});
+    const text_1 = this.add.text(295.5, 111, "", {});
     text_1.text = "xxxx";
     text_1.setStyle({ align: "center", color: "#ebf935ff", fontSize: "20px" });
+
+    // alertText
+    const alertText = new AlertText(this, 281.5, 54);
+    this.add.existing(alertText);
+    alertText.setStyle({ color: "#f62222ff", fontSize: "20px" });
 
     // openScript
     new OpenScript(this);
@@ -118,6 +124,7 @@ export default class BaseScene extends Phaser.Scene {
     this.player = player;
     this.container_1 = container_1;
     this.text_1 = text_1;
+    this.alertText = alertText;
     this.tilemap = tilemap;
 
     this.events.emit("scene-awake");
@@ -126,6 +133,7 @@ export default class BaseScene extends Phaser.Scene {
   private player!: Player;
   private container_1!: Phaser.GameObjects.Container;
   private text_1!: Phaser.GameObjects.Text;
+  private alertText!: AlertText;
   private tilemap!: Phaser.Tilemaps.Tilemap;
 
   /* START-USER-CODE */
@@ -140,9 +148,9 @@ export default class BaseScene extends Phaser.Scene {
   private timer: any;
 
   init(data: { show: boolean; x?: number; y?: number } = { show: true }) {
-    console.log(data);
+    console.log("data:", data);
     const { global } = inject(this);
-    if (Object.keys(data).length == 0) {
+    if (Object.keys(data).length == 0 || data.show) {
       new SceneInOut(this);
     } else if (data.x && data.y) {
       global.playerData.position.x = data.x;
@@ -210,6 +218,7 @@ export default class BaseScene extends Phaser.Scene {
     let qKey = this.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.Q);
     let overlap: Phaser.Physics.Arcade.Collider;
     qKey.on("down", () => {
+      let once = false;
       console.log("注册事件");
       overlap = this.physics.add.overlap(
         this.player,
@@ -218,17 +227,24 @@ export default class BaseScene extends Phaser.Scene {
           if (!this.qkeyDownAndOverlap) {
             //按下后,判断是否重叠，如果重叠则拾取
             let i = this.itemContainer.list.indexOf(second as any);
-            console.log(i);
             let item = global.dataManager.currentRoom.items[i];
-            global.playerData.items.push(item);
-            global.dataManager.currentRoom.items[i] = null;
-            second.destroy();
-            this.qkeyDownAndOverlap = true;
-            this.scene.restart({
-              show: false,
-              x: this.player.x,
-              y: this.player.y,
-            });
+            if (item && global.playerData.addItem(item)) {
+              global.dataManager.currentRoom.items[i] = null;
+              second.destroy();
+              this.qkeyDownAndOverlap = true;
+              this.scene.restart({
+                show: false,
+                x: this.player.x,
+                y: this.player.y,
+              });
+            } else {
+              console.log("拾取失败");
+              if (!once) {
+                // this.alertText.alert("容量不足");
+                window.$message.warning("容量不足");
+                once = true;
+              }
+            }
           }
         }
       );
@@ -270,9 +286,13 @@ export default class BaseScene extends Phaser.Scene {
       items.forEach((item) => {
         // arcadeimage_1
         if (item) {
-          let { x, y, isSelected } = item;
-          const arcadeimage_1 = this.physics.add.image(x, y, "weapon_knife");
+          let { x, y, texture, scale } = item;
+          const arcadeimage_1 = this.physics.add.image(x, y, texture);
+
+          arcadeimage_1.scaleX = scale.x;
+          arcadeimage_1.scaleY = scale.y;
           arcadeimage_1.body.setSize(13, 6, false);
+
           this.itemContainer.add(arcadeimage_1);
         }
       });
@@ -302,7 +322,7 @@ export default class BaseScene extends Phaser.Scene {
   restart() {
     this.cleanUp();
     this.registry.destroy();
-    this.scene.restart();
+    this.scene.restart({ show: true });
   }
   /**
    * 常见指定图层并增加碰撞
@@ -334,8 +354,9 @@ export default class BaseScene extends Phaser.Scene {
     const { global } = inject(this);
     global.dataManager.goNext(direaction);
     global.playerData.setNewPosition(newPosition);
-    this.scene.restart();
+    this.restart();
   }
+
   /* END-USER-CODE */
 }
 

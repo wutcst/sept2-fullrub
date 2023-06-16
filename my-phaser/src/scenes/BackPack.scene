@@ -91,7 +91,7 @@
             "id": "735f284b-f3f9-4572-995d-2e31bbe5429e",
             "label": "text_2",
             "x": 110,
-            "y": 468,
+            "y": 447,
             "text": "点击Q丢弃选中的物品\n",
             "color": "#f7f6fbff"
         },
@@ -99,9 +99,27 @@
             "type": "Text",
             "id": "6140042d-2b83-447d-ac50-759c0685d230",
             "label": "text_3",
-            "x": 336,
-            "y": 468,
+            "x": 338,
+            "y": 446,
             "text": "鼠标悬浮上边可以查看物品信息"
+        },
+        {
+            "type": "Text",
+            "id": "be80cd13-e5d2-4b52-9b92-e4744a357a4f",
+            "label": "capacity",
+            "scope": "CLASS",
+            "x": 422,
+            "y": 150,
+            "text": "New text"
+        },
+        {
+            "type": "Text",
+            "id": "ac42caa9-b5fb-435d-9b0e-91ca54d55bae",
+            "label": "text",
+            "x": 110,
+            "y": 472,
+            "text": "点击E使用物品，一些物品不能使用\n",
+            "color": "#f7f6fbff"
         }
     ],
     "plainObjects": [],

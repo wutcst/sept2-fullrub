@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "strict": true,
+    "strict": false,
     "noEmit": false,
     "importHelpers": true,
     "moduleResolution": "node",
@@ -11,11 +11,11 @@
     "sourceMap": true,
     "baseUrl": "./src",
     "paths": {
-      "~/*": ["./*"]
+      "~/*": ["./*"],
+      "include": ["src/"]
     },
     "outDir": "./dist",
     "typeRoots": ["node_modules/@types", "node_module/phaser/types"]
-    // "types": ["phaser"]
   },
   "include": ["src/**/*", "types/**/*"]
 }

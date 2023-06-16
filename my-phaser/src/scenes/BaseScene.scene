@@ -216,12 +216,28 @@
             "id": "5627b2ea-fdb8-4e4c-be40-7d6f0b1ead07",
             "label": "text_1",
             "scope": "CLASS",
-            "x": 169,
-            "y": 164,
+            "x": 295.5,
+            "y": 111,
             "text": "xxxx",
             "align": "center",
             "fontSize": "20px",
             "color": "#ebf935ff"
+        },
+        {
+            "prefabId": "76c025b7-59eb-4da3-b1eb-0543a0530355",
+            "id": "ab325f55-2466-428a-a396-c6ad835da0eb",
+            "unlock": [
+                "x",
+                "y",
+                "color",
+                "fontSize"
+            ],
+            "label": "alertText",
+            "scope": "CLASS",
+            "x": 281.5,
+            "y": 54,
+            "fontSize": "20px",
+            "color": "#f62222ff"
         },
         {
             "prefabId": "39aa6888-ea33-4317-8f78-206c56cbb4ca",

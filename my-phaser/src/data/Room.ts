@@ -12,6 +12,7 @@ interface Direactions {
   south?: Room | null;
 }
 export default class Room {
+  id: number;
   name: string;
   description: string;
   direactions: Array<Room | null>;
@@ -76,5 +77,23 @@ export default class Room {
         return true;
       }
     });
+  }
+
+  getSaveData() {
+    let itemsInfo = [];
+    this.items.forEach((item) => {
+      itemsInfo.push(item.getSaveData());
+    });
+    let ids = [];
+    this.direactions.forEach((item) => {
+      ids.push(item?.id);
+    });
+    return {
+      id: this.id,
+      name: this.name,
+      description: this.description,
+      direactions: ids,
+      items: itemsInfo,
+    };
   }
 }
