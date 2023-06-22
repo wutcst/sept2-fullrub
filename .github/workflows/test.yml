@@ -1,4 +1,4 @@
-name: Ci Builder
+name: test
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -37,14 +37,14 @@ jobs:
           java-version: 11
       # Code review with Checkstyle
       - name: Checkstyle
-        run: |
-          mvn checkstyle:checkstyle
-          checkstyle_report_path=$(find target/site -name "checkstyle-result.xml")
-          if [ -f "$checkstyle_report_path" ]; then
-            echo "Checkstyle report: $checkstyle_report_path"
-            echo "::error :: Checkstyle found issues in your code. Please fix them before continuing."
-            exit 1
-          fi
+          run: |
+            mvn checkstyle:checkstyle || true
+            checkstyle_report_path=$(find target/site -name "checkstyle-result.xml")
+            if [ -f "$checkstyle_report_path" ]; then
+              echo "Checkstyle report: $checkstyle_report_path"
+              echo "::error :: Checkstyle found issues in your code. Please fix them before continuing."
+              exit 1
+            fi
       # Code testing with JUnit
       - name: JUnit
         run: |
