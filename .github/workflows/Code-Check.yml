@@ -1,0 +1,37 @@
+name: Code Check
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+    branches:
+      - master
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Java and Gradle
+      uses: actions/setup-java@v2
+      with:
+        java-version: 11
+
+    - name: Install Gradle
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gradle
+
+    - name: Install dependencies and check code formatting
+      run: |
+        gradle ktlintCheck
+
+    - name: Run tests
+      run: |
+        gradle test
