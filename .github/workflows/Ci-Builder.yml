@@ -21,27 +21,25 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checkout source code
+      # 检出源代码
       - uses: actions/checkout@v2
-      # Cache maven .m2 directory
+      # 缓存maven .m2目录
       - uses: actions/cache@v2
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-      # Install Java 1.8
+      # 安装Java 1.8
       - uses: actions/setup-java@v1
         with:
           server-id: alimaven
           java-version: 11
-      # Publish to Apache Maven Central
-      #- run: mvn install:install-file "-Dfile=cobra.jar" "-DgroupId=com.cobra" "-DartifactId=cobra" "-Dversion=0.98.4" "-Dpackaging=jar" "-DgeneratePom=true"
-      #- run: mvn clean compile
-      - name: Checkstyle
-        run: mvn --batch-mode --update-snapshots verify
-      - name: JUnit Test
-        run: mkdir staging && cp target/*.jar staging
+      # 运行Maven命令
+      - run: mvn --batch-mode --update-snapshots verify
+      # 创建staging目录并将构建的JAR文件复制到该目录下
+      - run: mkdir staging && cp target/*.jar staging
+      # 上传构建的JAR文件作为GitHub Actions的输出
       - uses: actions/upload-artifact@v3
         with:
           name: Package
