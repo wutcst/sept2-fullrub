@@ -1,4 +1,6 @@
 name: Checkstyle
+
+on:
   push:
     branches:
       - master
