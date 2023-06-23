@@ -1,4 +1,5 @@
 package com.example.web_project.service.Impl;
+
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.web_project.entity.Room;
 import com.example.web_project.mapper.RoomMapper;
@@ -13,6 +14,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class RoomServiceImpl extends ServiceImpl<RoomMapper, Room> implements RoomService {
 
+    @Override
+    public boolean save(Room entity) {
+        return super.save(entity);
+    }
 }
 
 

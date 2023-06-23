@@ -2,8 +2,8 @@ package com.example.web_project.service.Impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.web_project.entity.Archive;
-import com.example.web_project.service.ArchiveService;
 import com.example.web_project.mapper.ArchiveMapper;
+import com.example.web_project.service.ArchiveService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class ArchiveServiceImpl extends ServiceImpl<ArchiveMapper, Archive>
-    implements ArchiveService{
+    implements ArchiveService {
 
 }
 
