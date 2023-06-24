@@ -1,5 +1,9 @@
 import ItemInfo from "./ItemInfo";
 import { itemKind } from "~/constant";
+/**
+ * 用户数据
+ * 包括重量，物品，位置等等
+ */
 export default class PlayerData {
   position: {
     x: number;

@@ -8,7 +8,10 @@ interface RoomDirection {
   room: Room;
   direction: "north" | "south" | "east" | "west";
 }
-
+/**
+ * 数据管理类
+ * 在全局的数据管理，博爱阔房间，当前房间和历史记录
+ */
 export default class DataManager {
   rooms: Room[];
   currentRoom: Room;
@@ -72,7 +75,6 @@ export default class DataManager {
 
       let index = Math.floor(Math.random() * keys.length);
       let key = keys[index] as string;
-      console.log(key);
       let info = itemKind[key];
       let item = Itemfactory.create(info.type);
       item.x =

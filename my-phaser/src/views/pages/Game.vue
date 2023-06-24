@@ -93,7 +93,6 @@ function send() {
   startLoading();
   let ans = global.value.dataManager.getSaveData();
   let newDate = new Date();
-  console.log(JSON.stringify(ans.history));
   let requestParams: RequstParams = {
     name: value.value,
     currentRoom: ans.currentRoom.id,
