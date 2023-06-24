@@ -1,31 +1,9 @@
+server:
+  port: 8089
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/finalwork?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/zuul?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: 12345678
     type: com.zaxxer.hikari.HikariDataSource
-  servlet:
-    multipart:
-      max-file-size: 10MB  # 最大支持文件大小
-      max-request-size: 10MB  # 最大支持请求大小
-      #enabled: true  #默认支持文件上传.
-      # file-size-threshold: #支持文件写入磁盘.
-      #location: #上传文件的临时目录
-
-# 配置Mybatis-Plus
-mybatis-plus:
-  global-config:
-    db-config:
-      logic-delete-field: isDeleted # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
-      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
-      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
-  mapper-locations: classpath*:/mapper/*Mapper.xml
-file:
-  #上传路径
-  path: d:/file/
-access:
-  base-url:
-    #访问路径
-    file: d:/file/
-

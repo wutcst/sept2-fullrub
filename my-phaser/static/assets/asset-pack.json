@@ -2,6 +2,11 @@
     "section1": {
         "files": [
             {
+                "url": "assets/3png.png",
+                "type": "image",
+                "key": "chuansong"
+            },
+            {
                 "url": "assets/public/ui/close.png",
                 "type": "image",
                 "key": "close"
@@ -52,6 +57,11 @@
                 "textureURL": "assets/public/enemies/lizard.png",
                 "type": "atlas",
                 "key": "lizard_1"
+            },
+            {
+                "url": "assets/public/items/药水2.png",
+                "type": "image",
+                "key": "picture"
             },
             {
                 "url": "assets/player-anims.json",
