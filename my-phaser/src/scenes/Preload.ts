@@ -7,7 +7,9 @@ import PreloadBarUpdaterScript from "../script-nodes/PreloadBarUpdaterScript";
 /* START-USER-IMPORTS */
 import assetPackUrl from "../../static/assets/asset-pack.json";
 /* END-USER-IMPORTS */
-
+/**
+ * Preload预加载场景中的图片等等
+ */
 export default class Preload extends Phaser.Scene {
   constructor() {
     super("Preload");

@@ -5,7 +5,9 @@
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
-
+/**
+ * 游戏进入提示
+ */
 export default class Level extends Phaser.Scene {
   constructor() {
     super("Level");
