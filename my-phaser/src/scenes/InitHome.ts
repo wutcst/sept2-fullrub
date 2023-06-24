@@ -9,7 +9,9 @@ import SceneInOut from "../script-nodes/SceneInOut";
 import Global from "./Global";
 import { useViewStore } from "~/store";
 /* END-USER-IMPORTS */
-
+/**
+ * 初始房间，定义了进入的窗口
+ */
 export default class InitHome extends Phaser.Scene {
   constructor() {
     super("BaseHome");

@@ -12,6 +12,12 @@ interface Direactions {
   north?: Room | null;
   south?: Room | null;
 }
+/**
+ * 房间数据
+ * 包括房间中的物品
+ * 房间的方向
+ *
+ */
 export default class Room {
   id: number;
   name: string;

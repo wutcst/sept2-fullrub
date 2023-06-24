@@ -59,9 +59,8 @@ const user = reactive({
 });
 async function login(e) {
   e.preventDefault();
-  console.log(e);
+
   let { data: ans } = await loginApi(user);
-  console.log(ans.data);
   if (ans.code == 200) {
     localStorage.setItem("user", "true");
     emits("afterLogin");
