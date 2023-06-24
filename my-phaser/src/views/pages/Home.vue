@@ -72,9 +72,6 @@ function startNewGame() {
     setTimeout(() => {
       window.open("#/game", "_blank");
     }, 500);
-    // router.push({
-    //   path: "/game",
-    // });
   }, 3000);
 }
 onMounted(() => {

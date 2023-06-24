@@ -75,7 +75,6 @@ export default class DataManager {
 
       let index = Math.floor(Math.random() * keys.length);
       let key = keys[index] as string;
-      console.log(key);
       let info = itemKind[key];
       let item = Itemfactory.create(info.type);
       item.x =

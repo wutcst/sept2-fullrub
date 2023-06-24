@@ -149,7 +149,6 @@ export default class BaseScene extends Phaser.Scene {
   private timer: any;
 
   init(data: { show: boolean; x?: number; y?: number } = { show: true }) {
-    console.log("data:", data);
     const { global } = inject(this);
     if (Object.keys(data).length == 0 || data.show) {
       new SceneInOut(this);
@@ -162,7 +161,6 @@ export default class BaseScene extends Phaser.Scene {
    * 场景创建时
    */
   create() {
-    console.log("create");
     this.isOverlap = false;
     this.qkeyDownAndOverlap = false;
     this.itemContainer = this.add.container();
@@ -170,7 +168,6 @@ export default class BaseScene extends Phaser.Scene {
     this.editorCreate();
     //创建完成后
     let { global } = inject(this);
-    console.log(global.dataManager);
     global.dataManager.currentRoom.filterItems();
     if (global.dataManager.currentRoom.name === "9号") {
       //添加一个传送门，点击o结束游戏
@@ -194,7 +191,6 @@ export default class BaseScene extends Phaser.Scene {
       });
       let oKey = this.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.O);
       oKey.once("down", () => {
-        console.log("触发结束");
         let { notShowBtns } = useViewStore();
         notShowBtns();
         this.scene.start("GameOver");
@@ -249,7 +245,6 @@ export default class BaseScene extends Phaser.Scene {
     let overlap: Phaser.Physics.Arcade.Collider;
     qKey.on("down", () => {
       let once = false;
-      console.log("注册事件");
       overlap = this.physics.add.overlap(
         this.player,
         this.itemContainer.list,
@@ -268,7 +263,6 @@ export default class BaseScene extends Phaser.Scene {
                 y: this.player.y,
               });
             } else {
-              console.log("拾取失败");
               if (!once) {
                 // this.alertText.alert("容量不足");
                 window.$message.warning("容量不足");
@@ -280,7 +274,6 @@ export default class BaseScene extends Phaser.Scene {
       );
     });
     qKey.on("up", () => {
-      console.log("删除事件");
       if (overlap) {
         overlap.destroy();
       }
@@ -341,7 +334,6 @@ export default class BaseScene extends Phaser.Scene {
    * 场景重建时清理之前的场景
    */
   cleanUp() {
-    console.log("摧毁");
     this.children.removeAll(true);
     this.physics.world.shutdown();
     this.input.keyboard!.removeAllListeners();
