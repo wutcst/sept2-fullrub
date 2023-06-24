@@ -25,7 +25,6 @@ export const useViewStore = defineStore("view", () => {
   }
 
   function toggleShowBtns() {
-    console.log(showBtns);
     showBtns.show = true;
   }
   function notShowBtns() {
@@ -33,7 +32,6 @@ export const useViewStore = defineStore("view", () => {
   }
 
   function setArchiveID(id: number) {
-    console.log(id);
     archive.id = id;
   }
 

@@ -49,8 +49,6 @@ onMounted(async () => {
 async function readArchive(id: number) {
   startLoading();
   setLoadingText("正在读取存档中");
-  // const { archive } = useViewStore();
-  // archive.id = id;
   localStorage.setItem("id", id.toString());
   setTimeout(() => {
     endLoading();

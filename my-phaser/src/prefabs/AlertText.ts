@@ -5,7 +5,10 @@
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
-
+/**
+ * 顶层提示文本
+ * 可以设置对应的文本，从顶层弹出
+ */
 export default class AlertText extends Phaser.GameObjects.Text {
   constructor(scene: Phaser.Scene, x?: number, y?: number) {
     super(scene, x ?? 281.5, y ?? 74, "", {});

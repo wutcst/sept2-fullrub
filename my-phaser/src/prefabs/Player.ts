@@ -10,7 +10,10 @@ import inject from "../utils/inject";
 export default interface Player {
   body: Phaser.Physics.Arcade.Body;
 }
-
+/**
+ * 玩家类
+ * 玩家的物理系统，包括行走动画和位置
+ */
 export default class Player extends Phaser.Physics.Arcade.Sprite {
   constructor(
     scene: Phaser.Scene,

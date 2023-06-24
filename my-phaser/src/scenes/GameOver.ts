@@ -5,7 +5,10 @@
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
-
+/**
+ * 游戏结束画面
+ * 一个简单的致谢，任务
+ */
 export default class GameOver extends Phaser.Scene {
   constructor() {
     super("GameOver");

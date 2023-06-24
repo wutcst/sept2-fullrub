@@ -1,4 +1,3 @@
-
 // You can write more code here
 
 /* START OF COMPILED CODE */
@@ -8,32 +7,39 @@ import Phaser from "phaser";
 /* END-USER-IMPORTS */
 
 export default interface CollideDector {
-
-	 body: Phaser.Physics.Arcade.Body;
+  body: Phaser.Physics.Arcade.Body;
 }
-
+/**
+ * 碰撞监测
+ * 设置碰撞的方向，进而决定触发进入下一个房间
+ */
 export default class CollideDector extends Phaser.Physics.Arcade.Image {
+  constructor(
+    scene: Phaser.Scene,
+    x?: number,
+    y?: number,
+    texture?: string,
+    frame?: number | string
+  ) {
+    super(scene, x ?? 0, y ?? 0, texture || "__DEFAULT", frame);
 
-	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "__DEFAULT", frame);
+    scene.physics.add.existing(this, false);
+    this.body.setSize(32, 32, false);
 
-		scene.physics.add.existing(this, false);
-		this.body.setSize(32, 32, false);
+    /* START-USER-CTR-CODE */
+    // Write your code here.
+    /* END-USER-CTR-CODE */
+  }
 
-		/* START-USER-CTR-CODE */
-		// Write your code here.
-		/* END-USER-CTR-CODE */
-	}
+  public direaction: string = "";
+  public newX: number = 0;
+  public newY: number = 0;
 
-	public direaction: string = "";
-	public newX: number = 0;
-	public newY: number = 0;
+  /* START-USER-CODE */
 
-	/* START-USER-CODE */
+  // Write your code here.
 
-	// Write your code here.
-
-	/* END-USER-CODE */
+  /* END-USER-CODE */
 }
 
 /* END OF COMPILED CODE */

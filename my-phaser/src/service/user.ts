@@ -1,4 +1,8 @@
 import { request } from "./request";
-const loginApi = (data) => request.post("/user/login", data);
-const registerApi = (data) => request.post("/user/register", data);
+function loginApi(data) {
+  return request.post("/user/login", data);
+}
+function registerApi(data) {
+  return request.post("/user/register", data);
+}
 export { loginApi, registerApi };

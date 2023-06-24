@@ -16,6 +16,9 @@ export type Kind = "blade" | "magicWater" | "exit";
 export type ItemKind = {
   [k in Kind]?: ItemInterface;
 };
+/**
+ * 物品信息，包括重量以及use()
+ */
 export default class ItemInfo {
   x: number;
   y: number;

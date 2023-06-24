@@ -5,6 +5,10 @@ import { useViewStore } from "~/store";
 import { getData } from "~/service";
 import Itemfactory from "../utils/Itemfactory";
 import Room from "../data/Room";
+/**
+ * 全局场景，一直存在，定义了全局变量
+ * 加载存档
+ */
 export default class Global extends Phaser.Scene {
   constructor() {
     super("Global");
