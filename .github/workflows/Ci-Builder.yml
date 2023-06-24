@@ -36,7 +36,7 @@ jobs:
           server-id: alimaven
           java-version: 11
       # 运行Maven命令
-      - run cd web-project
+      - run: cd web-project
       - run: mvn --batch-mode --update-snapshots verify
       # 创建staging目录并将构建的JAR文件复制到该目录下
       - run: mkdir staging && cp target/*.jar staging

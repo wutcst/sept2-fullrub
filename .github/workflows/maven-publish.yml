@@ -19,9 +19,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-      - run: cd web_project
+
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
+        run: cd web_project
+             mvn -B package --file pom.xml
 
       - run: mkdir staging && cp target/*.jar staging
       # 设置 jobs Maven pom 版本环境变量
