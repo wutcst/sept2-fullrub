@@ -1,3 +1,4 @@
+import { json } from "stream/consumers";
 import ItemInfo from "./ItemInfo";
 export enum Direaction {
   NORTH,
@@ -86,14 +87,16 @@ export default class Room {
     });
     let ids = [];
     this.direactions.forEach((item) => {
-      ids.push(item?.id);
+      if (!item || item.id == null || item.id == undefined) {
+        ids.push(null);
+      } else ids.push(item?.id);
     });
     return {
       id: this.id,
       name: this.name,
       description: this.description,
-      direactions: ids,
-      items: itemsInfo,
+      ids: JSON.stringify(ids),
+      items: JSON.stringify(itemsInfo),
     };
   }
 }

@@ -13,8 +13,9 @@ import org.springframework.stereotype.Component;
 public class User {
 
     @TableId(type= IdType.AUTO)
-    private Long id;
-    @JsonDeserialize
+    private Integer id;
+
+
     private String username;
     private String password;
 }

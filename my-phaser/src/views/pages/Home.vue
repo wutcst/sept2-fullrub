@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useMessage } from "naive-ui";
 import Login from "./components/Login.vue";
 import Register from "./components/Register.vue";
@@ -58,6 +58,7 @@ function logout() {
   setTimeout(() => {
     endLoading();
     isLogin.value = false;
+    localStorage.clear();
     window.$message.info("退出成功");
   }, 2000);
 }
@@ -66,6 +67,7 @@ function startNewGame() {
   setLoadingText("正在创建新的游戏中");
   setTimeout(() => {
     endLoading();
+    localStorage.setItem("id", "38");
     window.$message.info("创建成功");
     setTimeout(() => {
       window.open("#/game", "_blank");
@@ -75,6 +77,14 @@ function startNewGame() {
     // });
   }, 3000);
 }
+onMounted(() => {
+  if (JSON.parse(localStorage.getItem("user"))) {
+    window.$message.success("已登录");
+    isLogin.value = true;
+  } else {
+    window.$message.warning("未登录");
+  }
+});
 </script>
 
 <style scoped>

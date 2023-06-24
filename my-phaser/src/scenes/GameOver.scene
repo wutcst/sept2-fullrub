@@ -1,0 +1,78 @@
+{
+    "id": "34170eb8-c381-48aa-9bc5-0c978bb03087",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "GameOver",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "5bfd0bd8-4b61-45e8-abac-592354a4cda7",
+            "label": "container_1",
+            "scope": "CLASS",
+            "x": 234,
+            "list": [
+                {
+                    "type": "Text",
+                    "id": "8169e101-0cbe-45aa-aba6-3f4b69fcef4d",
+                    "label": "text",
+                    "y": 134,
+                    "text": "开发成员:",
+                    "fontSize": "26px"
+                },
+                {
+                    "type": "Text",
+                    "id": "c3b546d0-e822-4bf2-986a-cc8ca0e800a4",
+                    "label": "text_1",
+                    "y": 174,
+                    "text": "方嘉豪",
+                    "fontSize": "20px"
+                },
+                {
+                    "type": "Text",
+                    "id": "ff746b7c-7571-4f57-9af2-360cdc7d9b7a",
+                    "label": "text_6",
+                    "y": 228,
+                    "text": "王晨宏",
+                    "fontSize": "20px"
+                },
+                {
+                    "type": "Text",
+                    "id": "cb71eafc-fa54-4fa7-ab20-8c4bac5abe6b",
+                    "label": "text_7",
+                    "y": 281,
+                    "text": "陈宇沥",
+                    "fontSize": "20px"
+                },
+                {
+                    "type": "Text",
+                    "id": "51f560e0-4575-4bf0-abba-66fa729932a1",
+                    "label": "text_2",
+                    "y": 369,
+                    "text": "开发任务分工:",
+                    "fontSize": "26px"
+                },
+                {
+                    "type": "Text",
+                    "id": "703bbafc-2a57-433b-8f9b-34388fb96a11",
+                    "label": "text_3",
+                    "y": 427,
+                    "text": "方嘉豪\n 前端项目结构\n 界面玩法设计\n 游戏地图关卡设计\n 游戏开发\n 单元测试\n 前后端对接\n 相关文档编写\n王晨宏\n 后端项目结构\n 后端功能设计\n 后端功能模块编写\n 单元测试\n 相关文档编写\n陈宇沥\n 游戏数据设计\n 找游戏素材\n 数据库设计开发\n 数据库dao层编写\n 单元测试\n 相关文档编写"
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

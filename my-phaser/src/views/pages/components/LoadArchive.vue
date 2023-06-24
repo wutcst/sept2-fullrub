@@ -20,22 +20,48 @@
             color: white;
           "
         >
-          存档{{ index + 1 }}
+          {{ item.name }}
         </span>
-        <span style="margin-left: 30px">日期:</span>
-        <n-button class="btn" type="info">读取</n-button>
+        <span style="margin-left: 30px"
+          >日期:
+          <span style="margin-left: 10px">
+            {{ item.date }}
+          </span>
+        </span>
+        <n-button class="btn" type="info" @click="() => readArchive(item.id)"
+          >读取</n-button
+        >
       </div>
     </div>
   </n-card>
 </template>
 
 <script setup lang="ts">
-const archives = new Array(17);
+import { onMounted, ref, nextTick } from "vue";
+import { getArchives } from "~/service";
+import { useViewStore } from "../../../store/view";
+const archives = ref([]);
+const { startLoading, endLoading, setLoadingText } = useViewStore();
+onMounted(async () => {
+  const { data: ans } = await getArchives();
+  archives.value = ans.data;
+});
+async function readArchive(id: number) {
+  startLoading();
+  setLoadingText("正在读取存档中");
+  // const { archive } = useViewStore();
+  // archive.id = id;
+  localStorage.setItem("id", id.toString());
+  setTimeout(() => {
+    endLoading();
+    window.open("#/game", "_blank");
+  }, 2000);
+}
 </script>
 
 <style scoped>
 .my-card {
-  min-width: 400px;
+  min-width: 500px;
 }
 
 .my-card :deep() .n-card__content {

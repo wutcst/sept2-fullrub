@@ -76,7 +76,7 @@ export default class PlayerData {
     return {
       position: this.position,
       nowPosition: this.nowPosition,
-      maxWeight: this.maxWeight,
+      maxWeight: this.maxWeight ?? 50,
       items: itemsInfo,
     };
   }
