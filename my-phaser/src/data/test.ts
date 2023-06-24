@@ -14,3 +14,10 @@
 //测试报告：编写测试报告，总结测试结果、缺陷情况、测试覆盖率和测试建议等信息，以便于管理人员和开发人员了解测试情况和测试质量。
 
 //测试评审：对测试过程进行评审，以发现测试过程中可能存在的问题和改进点，并提出改进建议。
+// import DataManager from "./DataManager";
+let arr = new Array(9);
+test("should first", () => {
+  //   let dataManager = new DataManager();
+  //   dataManager.initRooms();
+  expect(arr.length).toBe(9);
+});
