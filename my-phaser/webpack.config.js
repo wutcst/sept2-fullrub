@@ -65,6 +65,13 @@ module.exports = {
     open: true,
     hot: true,
     port: 8080,
+    proxy: {
+      "/api": {
+        target: "http://127.0.0.1:8089",
+        pathRewrite: { "^/api": "" },
+        changeOrigin: true, // target是域名的话，需要这个参数，
+      },
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({

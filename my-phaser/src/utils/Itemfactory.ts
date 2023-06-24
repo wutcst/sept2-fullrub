@@ -14,4 +14,26 @@ export default class Itemfactory {
     }
     return obj;
   }
+  static createByInfo(params: {
+    x: number;
+    y: number;
+    description: string;
+    weight: number;
+    type: Kind;
+  }): ItemInfo {
+    let obj = null;
+    switch (params.type) {
+      case "magicWater":
+        obj = new MagicWater();
+        break;
+      case "blade":
+        obj = new Blade();
+    }
+    let { x, y, description, weight } = params;
+    obj.x = x;
+    obj.y = y;
+    obj.description = description;
+    obj.weight = weight;
+    return obj;
+  }
 }

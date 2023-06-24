@@ -1,6 +1,5 @@
 //software test
 import Room, { Direaction } from "./Room";
-import ItemInfo from "./ItemInfo";
 import { itemArea } from "~/config";
 import { itemKind } from "~/constant";
 import { doorPosition } from "~/constant";
@@ -16,34 +15,55 @@ export default class DataManager {
   history: RoomDirection[] = [];
   constructor() {
     this.rooms = [];
-    this.currentRoom = new Room("entry", "这是一个初始房间");
-    this.initRooms();
+    // this.currentRoom = new Room("entry", "这是一个初始房间");
+    // this.initRooms();
   }
   initRooms() {
-    const room1 = new Room("1", "这是1");
-    const room2 = new Room("2", "这是2");
-    const room3 = new Room("3", "这是3");
-    const room4 = new Room("4", "这是4");
-    const overRoom = new Room("over", "这是over");
+    const room1 = new Room("1号", "这是1");
+    const room2 = new Room("2号", "这是2");
+    const room3 = new Room("3号", "这是3");
+    const room4 = new Room("4号", "这是4");
+    const room5 = new Room("5号", "这是5");
+    const room6 = new Room("6号", "这是6");
+    const room7 = new Room("7号", "这是7");
+    const room8 = new Room("8号", "这是8");
+    const room9 = new Room("9号", "这是9");
 
-    this.initRandomItems(room1, 3);
-    this.initRandomItems(room2, 3);
-    this.initRandomItems(room3, 3);
-    this.initRandomItems(room4, 3);
+    this.initRandomItems(room1, Math.floor(Math.random() * 4));
+    this.initRandomItems(room2, Math.floor(Math.random() * 4));
+    this.initRandomItems(room3, Math.floor(Math.random() * 4));
+    this.initRandomItems(room4, Math.floor(Math.random() * 4));
+    this.initRandomItems(room5, Math.floor(Math.random() * 4));
+    this.initRandomItems(room6, Math.floor(Math.random() * 4));
+    this.initRandomItems(room7, Math.floor(Math.random() * 4));
+    this.initRandomItems(room8, Math.floor(Math.random() * 4));
 
     this.rooms.push(room1);
     this.rooms.push(room2);
     this.rooms.push(room3);
     this.rooms.push(room4);
-    this.rooms.push(overRoom);
+    this.rooms.push(room5);
+    this.rooms.push(room6);
+    this.rooms.push(room7);
+    this.rooms.push(room8);
+    this.rooms.push(room9);
+
+    this.rooms = this.rooms.map((item, index) => {
+      item.id = index + 1;
+      return item;
+    });
 
     this.currentRoom = room1;
 
-    Room.setDireactionBoth(room1, room2, Direaction.NORTH);
-    Room.setDireactionBoth(room1, room4, Direaction.WEST);
+    Room.setDireactionBoth(room1, room2, Direaction.WEST);
     Room.setDireactionBoth(room1, room3, Direaction.EAST);
-    Room.setDireactionBoth(room2, overRoom, Direaction.EAST);
-    Room.setDireactionBoth(room3, overRoom, Direaction.NORTH);
+    Room.setDireactionBoth(room1, room4, Direaction.NORTH);
+    Room.setDireactionBoth(room4, room5, Direaction.WEST);
+    Room.setDireactionBoth(room4, room6, Direaction.EAST);
+    Room.setDireactionBoth(room4, room8, Direaction.NORTH);
+    Room.setDireactionBoth(room9, room8, Direaction.WEST);
+    Room.setDireactionBoth(room7, room8, Direaction.EAST);
+    Room.setDireactionBoth(room6, room9, Direaction.NORTH);
   }
   initRandomItems(room: Room, num: number) {
     let list = [];
@@ -94,10 +114,10 @@ export default class DataManager {
     });
   }
 
-  goNext(direaction: string) {
+  goNext(direction: string) {
     let current = this.currentRoom;
     let rightDir = "";
-    switch (direaction) {
+    switch (direction) {
       case "north":
         this.currentRoom = this.currentRoom.getNorth()!;
         rightDir = "south";
@@ -148,7 +168,10 @@ export default class DataManager {
 
   getSaveData() {
     let _rooms = this.rooms.map((item) => item.getSaveData());
-    let _history = this.history.map((item) => item.room.id);
+    let _history = this.history.map((item) => ({
+      id: item.room.id,
+      direction: item.direction,
+    }));
     return {
       rooms: _rooms,
       currentRoom: this.currentRoom.getSaveData(),

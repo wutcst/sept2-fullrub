@@ -3,14 +3,15 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import Player from "../prefabs/Player";
-import CollideDector from "../prefabs/CollideDector";
 import AlertText from "../prefabs/AlertText";
+import CollideDector from "../prefabs/CollideDector";
+import Player from "../prefabs/Player";
 import OpenScript from "../script-nodes/OpenScript";
 /* START-USER-IMPORTS */
-import inject from "~/utils/inject";
 import { createSpeechBubble } from "~/game";
+import inject from "~/utils/inject";
 import SceneInOut from "../script-nodes/SceneInOut";
+import { useViewStore } from "../store/view";
 /* END-USER-IMPORTS */
 
 export default class BaseScene extends Phaser.Scene {
@@ -169,8 +170,36 @@ export default class BaseScene extends Phaser.Scene {
     this.editorCreate();
     //创建完成后
     let { global } = inject(this);
+    console.log(global.dataManager);
     global.dataManager.currentRoom.filterItems();
-
+    if (global.dataManager.currentRoom.name === "9号") {
+      //添加一个传送门，点击o结束游戏
+      const image = this.physics.add.image(320, 300, "chuansong");
+      image.setScale(0.16251047969932508, 0.13857599294166079);
+      image.setDepth(9);
+      let timer = null;
+      let tipContainer: Phaser.GameObjects.Container;
+      this.physics.add.overlap(this.player, image, () => {
+        if (!tipContainer) {
+          tipContainer = createSpeechBubble(
+            this,
+            380,
+            240,
+            40,
+            40,
+            "点击O\n传送出去"
+          );
+          tipContainer.setDepth(12);
+        }
+      });
+      let oKey = this.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.O);
+      oKey.once("down", () => {
+        console.log("触发结束");
+        let { notShowBtns } = useViewStore();
+        notShowBtns();
+        this.scene.start("GameOver");
+      });
+    }
     this.player.setDepth(10);
     this.addColliderWall();
     // 监听与door的碰撞
@@ -187,6 +216,7 @@ export default class BaseScene extends Phaser.Scene {
         }
       }
     );
+
     //根据data创建场景
     this.initData();
     //监听与物品的overlap

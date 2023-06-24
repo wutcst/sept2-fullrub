@@ -6,8 +6,8 @@ import InitHome from "./scenes/InitHome";
 import BaseScene from "./scenes/BaseScene";
 import Global from "./scenes/Global";
 import BackPack from "./scenes/BackPack";
-
 // import { useViewStore } from "./store";
+import GameOver from "./scenes/GameOver";
 
 async function startGame(): Promise<Phaser.Game> {
   // const viewState = useViewStore();
@@ -29,7 +29,7 @@ async function startGame(): Promise<Phaser.Game> {
         // debug: true,
       },
     },
-    scene: [Global, Preload, Level, InitHome, BaseScene, BackPack],
+    scene: [Global, Preload, Level, InitHome, BaseScene, BackPack, GameOver],
   });
   game.scene.start("Global");
   return new Promise((resolve, reject) => {

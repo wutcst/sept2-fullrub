@@ -1,5 +1,7 @@
 package com.example.web_project.service.Impl;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.web_project.entity.User;
 import com.example.web_project.mapper.UserMapper;
 import com.example.web_project.service.UserService;
@@ -7,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements UserService {
 
     @Autowired
     private UserMapper userMapper;
@@ -28,14 +30,5 @@ public class UserServiceImpl implements UserService {
             return realUser;
         }
         return null;
-    }
-
-    @Override
-    public boolean userRegister(User user) {
-        if(user!=null) {
-            userMapper.insert(user.getUsername(),user.getPassword());
-            return true;
-        }
-        return false;
     }
 }

@@ -11,7 +11,7 @@ export const useViewStore = defineStore("view", () => {
   });
 
   const archive = reactive({
-    id: 1,
+    id: 27,
   });
 
   function startLoading() {
@@ -28,9 +28,13 @@ export const useViewStore = defineStore("view", () => {
     console.log(showBtns);
     showBtns.show = true;
   }
+  function notShowBtns() {
+    showBtns.show = false;
+  }
 
-  function setArchiveID() {
-    archive.id = 1;
+  function setArchiveID(id: number) {
+    console.log(id);
+    archive.id = id;
   }
 
   return {
@@ -40,6 +44,7 @@ export const useViewStore = defineStore("view", () => {
     setLoadingText,
     showBtns,
     toggleShowBtns,
+    notShowBtns,
     archive,
     setArchiveID,
   };
