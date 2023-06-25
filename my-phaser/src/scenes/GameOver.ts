@@ -19,7 +19,6 @@ export default class GameOver extends Phaser.Scene {
   }
 
   editorCreate(): void {
-    // container_1
     const container_1 = this.add.container(234, 600);
 
     // text
