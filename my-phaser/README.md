@@ -1,7 +1,3 @@
-## First steps
-
-This project requires [Node.js](https://nodejs.org) and [NPM.js](https://www.npmjs.com). It is recommended that you learn the basics of [Webpack.js](https://webpack.js.org).
-
 - Install dependencies:
 
   ```
