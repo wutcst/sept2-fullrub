@@ -5,11 +5,10 @@ import com.example.web_project.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
-class MainControllerTest {
+class MainServiceTest {
 
     @Autowired
     private UserService userService;
