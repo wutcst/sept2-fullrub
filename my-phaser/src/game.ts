@@ -8,7 +8,10 @@ import Global from "./scenes/Global";
 import BackPack from "./scenes/BackPack";
 // import { useViewStore } from "./store";
 import GameOver from "./scenes/GameOver";
-
+/**
+ * 开始游戏加载对象
+ * @returns 游戏实体的Promise
+ */
 async function startGame(): Promise<Phaser.Game> {
   // const viewState = useViewStore();
   const game = new Phaser.Game({
