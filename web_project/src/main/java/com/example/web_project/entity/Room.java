@@ -10,8 +10,8 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- *
- * @TableName room
+ * @author f-xiu
+ * @version 1.0.0
  */
 @TableName(value ="room")
 @Data

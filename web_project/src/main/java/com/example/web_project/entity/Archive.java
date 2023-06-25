@@ -8,8 +8,8 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- *
- * @TableName archive
+ * @author f-xiu
+ * @version 1.0.0
  */
 @TableName(value ="archive")
 @Data

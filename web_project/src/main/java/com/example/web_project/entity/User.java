@@ -7,6 +7,10 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author f-xiu
+ * @version 1.0.0
+ */
 @Component
 @Data
 @TableName("user")
