@@ -211,7 +211,6 @@ export default class BackPack extends Phaser.Scene {
     this.updateSelected();
   }
   deleteItem() {
-    //房屋中增加一个Item
     let { global } = inject(this);
     let { nowPosition: position } = global.playerData;
     let items = global.playerData.items;
@@ -229,7 +228,6 @@ export default class BackPack extends Phaser.Scene {
     }
   }
   useItem() {
-    //房屋中增加一个Item
     let { global } = inject(this);
     global.playerData.filtersItem();
     let items = global.playerData.items;
