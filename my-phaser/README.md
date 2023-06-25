@@ -21,8 +21,6 @@
 
   It is generated in the `/dist` folder.
 
-## Gitpod
-
 This repository is ready for start coding in Gitpod, a Cloud Development Environment. You only need to [click on this link](https://gitpod.io/#https://github.com/PhaserEditor2D/starter-template-webpack) for starting a new workspace.
 
 This is what Gitpod does:
