@@ -23,6 +23,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
 
+/**
+ * @author f-xiu
+ * @version 1.0.0
+ */
 @RestController
 @RequestMapping("data")
 public class DataController {
