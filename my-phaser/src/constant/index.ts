@@ -31,4 +31,10 @@ const itemKind: ItemKind = {
     },
   },
 };
-export { COLLIDE_DIRECTION, itemKind, doorPosition };
+const CODE_STATE = {
+  NOT_FOUND: 404,
+  SUCCESS: 200,
+  FAIL: 400,
+};
+
+export { COLLIDE_DIRECTION, itemKind, doorPosition, CODE_STATE };

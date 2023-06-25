@@ -1,7 +1,3 @@
-## First steps
-
-This project requires [Node.js](https://nodejs.org) and [NPM.js](https://www.npmjs.com). It is recommended that you learn the basics of [Webpack.js](https://webpack.js.org).
-
 - Install dependencies:
 
   ```
@@ -24,8 +20,6 @@ This project requires [Node.js](https://nodejs.org) and [NPM.js](https://www.npm
   ```
 
   It is generated in the `/dist` folder.
-
-## Gitpod
 
 This repository is ready for start coding in Gitpod, a Cloud Development Environment. You only need to [click on this link](https://gitpod.io/#https://github.com/PhaserEditor2D/starter-template-webpack) for starting a new workspace.
 
